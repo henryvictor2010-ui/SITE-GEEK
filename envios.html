@@ -1,0 +1,428 @@
+HTML
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UNIVERSAL GEEK - Rastreamento de Pedido</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Alpine.js -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Estilos Customizados -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="min-h-screen flex flex-col font-sans antialiased selection:bg-geek-primary selection:text-white" x-data="orderTracker()">
+
+    <!-- Top Announcement Bar -->
+    <div class="bg-geek-bar text-white text-center py-2 px-4 text-xs md:text-sm font-semibold tracking-wider shadow-sm uppercase">
+        <i class="fa-solid fa-bolt mr-1.5 text-yellow-300"></i>
+        PAGANDO COM PIX VOCÊ GANHA 5% DE DESCONTO
+    </div>
+
+    <!-- Main Header -->
+    <header class="bg-geek-bg border-b border-geek-border sticky top-0 z-30 shadow-xs">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20 gap-4">
+                
+                <!-- Search Input Header -->
+                <div class="flex-1 max-w-xs hidden sm:block">
+                    <div class="relative">
+                        <input type="text" placeholder="O que deseja procurar?" 
+                            class="w-full bg-white border border-geek-border rounded-full py-2 pl-4 pr-10 text-sm focus:outline-none focus:ring-2 focus:ring-geek-primary focus:border-transparent text-gray-700 placeholder-gray-400 shadow-inner">
+                        <button class="absolute right-3 top-2.5 text-geek-primary hover:text-geek-primaryHover">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Brand Title -->
+                <div class="flex-1 text-center">
+                    <a href="#" class="inline-block">
+                        <h1 class="text-2xl sm:text-3xl font-extrabold tracking-wider text-geek-darkBrown uppercase font-serif">
+                            UNIVERSAL GEEK
+                        </h1>
+                    </a>
+                </div>
+
+                <!-- Header Utility Icons -->
+                <div class="flex-1 flex items-center justify-end space-x-4 text-xs sm:text-sm font-medium text-geek-darkBrown">
+                    <a href="#" class="hidden md:flex items-center space-x-1 hover:text-geek-primary transition-colors">
+                        <i class="fa-regular fa-comments text-base"></i>
+                        <span>Atendimento</span>
+                    </a>
+                    <a href="#" class="flex items-center space-x-1 hover:text-geek-primary transition-colors">
+                        <i class="fa-regular fa-user text-base"></i>
+                        <span class="hidden sm:inline">Entrar / Cadastrar</span>
+                    </a>
+                    <a href="#" class="relative flex items-center p-2 bg-white rounded-full border border-geek-border hover:border-geek-primary transition-all shadow-xs">
+                        <i class="fa-solid fa-cart-shopping text-geek-primary text-base"></i>
+                        <span class="absolute -top-1 -right-1 bg-geek-primary text-white text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center">1</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Category Navbar -->
+        <nav class="bg-geek-navBg border-t border-geek-border py-2.5 shadow-inner">
+            <div class="max-w-7xl mx-auto px-4 flex justify-center space-x-6 md:space-x-10 text-xs sm:text-sm font-bold text-geek-darkBrown uppercase tracking-wide overflow-x-auto">
+                <a href="#" class="hover:text-geek-primary whitespace-nowrap transition-colors">ESTÁTUAS E ACTION FIGURES</a>
+                <a href="#" class="hover:text-geek-primary whitespace-nowrap transition-colors">PRESENTES CRIATIVOS</a>
+                <a href="#" class="hover:text-geek-primary whitespace-nowrap transition-colors">CARTAS POKÉMON</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Body Container -->
+    <main class="flex-1 max-w-5xl w-full mx-auto px-4 py-8 sm:px-6">
+
+        <!-- Page Header -->
+        <div class="text-center mb-8">
+            <h2 class="text-2xl sm:text-3xl font-bold text-geek-darkBrown">Rastreamento de Pedidos</h2>
+            <p class="text-sm text-gray-600 mt-1">Acompanhe em tempo real a entrega dos seus colecionáveis favoritos</p>
+        </div>
+
+        <!-- Search & Test Preset Section -->
+        <div class="bg-white rounded-2xl p-6 shadow-md border border-geek-border mb-8">
+            <form @submit.prevent="searchOrder" class="flex flex-col md:flex-row gap-3">
+                <div class="relative flex-1">
+                    <i class="fa-solid fa-box-archive absolute left-4 top-3.5 text-gray-400"></i>
+                    <input 
+                        type="text" 
+                        x-model="searchQuery" 
+                        placeholder="Digite o número do pedido (ex: #UG-88421) ou código de rastreio..." 
+                        class="w-full pl-11 pr-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-geek-primary focus:border-transparent outline-none transition text-sm text-gray-800"
+                    >
+                </div>
+                <button 
+                    type="submit" 
+                    class="bg-geek-primary hover:bg-geek-primaryHover text-white font-semibold px-8 py-3 rounded-xl transition-all shadow-md flex items-center justify-center gap-2 active:scale-95"
+                >
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <span>Buscar Pedido</span>
+                </button>
+            </form>
+
+            <!-- Quick Status Switcher for Demo -->
+            <div class="mt-5 pt-4 border-t border-gray-100">
+                <p class="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2 flex items-center gap-1.5">
+                    <i class="fa-solid fa-flask text-geek-primary"></i> Testar Status do Pedido (Exemplos Rápidos):
+                </p>
+                <div class="flex flex-wrap gap-2">
+                    <button @click="loadOrder('ANDRENETO')" 
+                        :class="currentOrder && (currentOrder.id === 'ANDRENETO' || currentOrder.trackingCode === 'ANDRENETO') ? 'bg-geek-primary text-white shadow-sm' : 'bg-amber-100 text-geek-primary hover:bg-amber-200 border border-amber-300'" 
+                        class="px-3 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1.5">
+                        <i class="fa-solid fa-star text-yellow-400"></i> ANDRENETO (Personalizado)
+                    </button>
+                    <button @click="loadOrder('#UG-88421')" 
+                        :class="currentOrder && currentOrder.id === '#UG-88421' ? 'bg-amber-700 text-white shadow-sm' : 'bg-amber-50 text-amber-800 hover:bg-amber-100 border border-amber-200'" 
+                        class="px-3 py-1.5 rounded-lg text-xs font-medium transition flex items-center gap-1.5">
+                        <span class="w-2 h-2 rounded-full bg-amber-500"></span> Em Processamento
+                    </button>
+                    <button @click="loadOrder('#UG-99201')" 
+                        :class="currentOrder && currentOrder.id === '#UG-99201' ? 'bg-blue-700 text-white shadow-sm' : 'bg-blue-50 text-blue-800 hover:bg-blue-100 border border-blue-200'" 
+                        class="px-3 py-1.5 rounded-lg text-xs font-medium transition flex items-center gap-1.5">
+                        <span class="w-2 h-2 rounded-full bg-blue-500"></span> Em Trânsito / Enviado
+                    </button>
+                    <button @click="loadOrder('#UG-55310')" 
+                        :class="currentOrder && currentOrder.id === '#UG-55310' ? 'bg-emerald-700 text-white shadow-sm' : 'bg-emerald-50 text-emerald-800 hover:bg-emerald-100 border border-emerald-200'" 
+                        class="px-3 py-1.5 rounded-lg text-xs font-medium transition flex items-center gap-1.5">
+                        <span class="w-2 h-2 rounded-full bg-emerald-500"></span> Entregue
+                    </button>
+                    <button @click="loadOrder('#UG-10022')" 
+                        :class="currentOrder && currentOrder.id === '#UG-10022' ? 'bg-rose-700 text-white shadow-sm' : 'bg-rose-50 text-rose-800 hover:bg-rose-100 border border-rose-200'" 
+                        class="px-3 py-1.5 rounded-lg text-xs font-medium transition flex items-center gap-1.5">
+                        <span class="w-2 h-2 rounded-full bg-rose-500"></span> Cancelado
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Active Order Container -->
+        <div x-show="currentOrder" class="space-y-6">
+
+            <!-- Order Header & Status Card -->
+            <div class="bg-white rounded-2xl p-6 shadow-md border border-geek-border">
+                <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6 border-b border-gray-100">
+                    <div>
+                        <div class="flex items-center gap-3">
+                            <h3 class="text-xl font-bold text-geek-darkBrown" x-text="'Pedido ' + currentOrder?.id"></h3>
+                            <span :class="getStatusBadgeClass(currentOrder?.statusKey)" class="px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider shadow-xs" x-text="currentOrder?.statusLabel"></span>
+                        </div>
+                        <p class="text-xs text-gray-500 mt-1">Realizado em <span class="font-semibold" x-text="currentOrder?.date"></span> • Pagamento: <span class="font-medium text-geek-primary" x-text="currentOrder?.paymentMethod"></span></p>
+                    </div>
+
+                    <!-- Tracking Number & Copy -->
+                    <div class="bg-gray-50 p-3 rounded-xl border border-gray-200 flex items-center justify-between gap-4">
+                        <div>
+                            <p class="text-[10px] text-gray-400 font-bold uppercase">Código de Rastreio</p>
+                            <p class="font-mono text-sm font-bold text-gray-800" x-text="currentOrder?.trackingCode || 'Pendente'"></p>
+                        </div>
+                        <button 
+                            x-show="currentOrder?.trackingCode" 
+                            @click="copyTrackingCode(currentOrder.trackingCode)" 
+                            class="text-xs bg-white border border-gray-300 hover:bg-geek-primary hover:text-white hover:border-geek-primary text-gray-700 px-3 py-1.5 rounded-lg transition-all flex items-center gap-1.5 font-medium shadow-2xs">
+                            <i class="fa-regular fa-copy"></i>
+                            <span x-text="copied ? 'Copiado!' : 'Copiar'"></span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Estimated Delivery Banner -->
+                <div class="mt-6 bg-amber-50/60 rounded-xl p-4 border border-amber-100 flex items-center justify-between flex-wrap gap-3">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-amber-100 flex items-center justify-center text-geek-primary">
+                            <i class="fa-solid fa-truck-fast text-lg"></i>
+                        </div>
+                        <div>
+                            <p class="text-xs text-gray-500">Previsão de Entrega</p>
+                            <p class="text-base font-bold text-geek-darkBrown" x-text="currentOrder?.estimatedDelivery"></p>
+                        </div>
+                    </div>
+                    <button @click="showSupportModal = true" class="text-xs font-semibold text-geek-primary hover:text-geek-primaryHover underline flex items-center gap-1">
+                        <i class="fa-regular fa-circle-question"></i> Precisa de ajuda com este pedido?
+                    </button>
+                </div>
+            </div>
+
+            <!-- CANCELED ORDER NOTICE -->
+            <div x-show="currentOrder?.statusKey === 'CANCELLED'" class="bg-rose-50 border border-rose-200 rounded-2xl p-6 text-center">
+                <div class="w-12 h-12 bg-rose-100 text-rose-600 rounded-full flex items-center justify-center mx-auto mb-3">
+                    <i class="fa-solid fa-xmark text-xl"></i>
+                </div>
+                <h4 class="text-lg font-bold text-rose-800">Este pedido foi cancelado</h4>
+                <p class="text-sm text-rose-600 max-w-md mx-auto mt-1" x-text="currentOrder?.cancelReason || 'O pedido foi cancelado e o valor estornado conforme as diretrizes da plataforma.'"></p>
+            </div>
+
+            <!-- STEPPER PROGRESS BAR -->
+            <div x-show="currentOrder && currentOrder.statusKey !== 'CANCELLED'" class="bg-white rounded-2xl p-6 shadow-md border border-geek-border">
+                <h4 class="text-base font-bold text-geek-darkBrown mb-6 flex items-center gap-2">
+                    <i class="fa-solid fa-route text-geek-primary"></i> Progresso da Entrega
+                </h4>
+
+                <!-- Horizontal Stepper Desktop -->
+                <div class="hidden md:block my-4">
+                    <div class="flex items-center justify-between relative">
+                        <div class="absolute left-0 top-1/2 -translate-y-1/2 w-full h-1.5 bg-gray-200 z-0 rounded-full"></div>
+                        <div class="absolute left-0 top-1/2 -translate-y-1/2 h-1.5 bg-geek-primary z-0 rounded-full transition-all duration-500" :style="'width: ' + getProgressPercentage() + '%'"></div>
+
+                        <template x-for="(step, index) in steps" :key="index">
+                            <div class="relative z-10 flex flex-col items-center group">
+                                <div 
+                                    :class="index <= currentOrder?.stepIndex ? 'bg-geek-primary text-white ring-4 ring-amber-100' : 'bg-white border-2 border-gray-300 text-gray-400'" 
+                                    class="w-10 h-10 rounded-full flex items-center justify-center font-bold text-sm transition-all duration-300">
+                                    <template x-if="index < currentOrder?.stepIndex">
+                                        <i class="fa-solid fa-check text-xs"></i>
+                                    </template>
+                                    <template x-if="index >= currentOrder?.stepIndex">
+                                        <span x-text="index + 1"></span>
+                                    </template>
+                                </div>
+                                <span 
+                                    :class="index <= currentOrder?.stepIndex ? 'font-bold text-geek-darkBrown' : 'text-gray-400'" 
+                                    class="text-xs mt-2 text-center max-w-[90px] leading-tight" 
+                                    x-text="step.label">
+                                </span>
+                            </div>
+                        </template>
+                    </div>
+                </div>
+
+                <!-- Mobile Vertical Stepper -->
+                <div class="md:hidden space-y-3">
+                    <template x-for="(step, index) in steps" :key="index">
+                        <div class="flex items-center gap-3">
+                            <div 
+                                :class="index <= currentOrder?.stepIndex ? 'bg-geek-primary text-white' : 'bg-gray-100 border border-gray-300 text-gray-400'" 
+                                class="w-7 h-7 rounded-full flex items-center justify-center font-bold text-xs shrink-0">
+                                <template x-if="index < currentOrder?.stepIndex">
+                                    <i class="fa-solid fa-check text-[10px]"></i>
+                                </template>
+                                <template x-if="index >= currentOrder?.stepIndex">
+                                    <span x-text="index + 1"></span>
+                                </template>
+                            </div>
+                            <span 
+                                :class="index <= currentOrder?.stepIndex ? 'font-bold text-geek-darkBrown' : 'text-gray-400'" 
+                                class="text-xs" 
+                                x-text="step.label">
+                            </span>
+                        </div>
+                    </template>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+
+                <!-- Left Column: Detailed Timeline -->
+                <div class="lg:col-span-2 bg-white rounded-2xl p-6 shadow-md border border-geek-border">
+                    <h4 class="text-base font-bold text-geek-darkBrown mb-6 flex items-center gap-2">
+                        <i class="fa-solid fa-list-check text-geek-primary"></i> Histórico Detalhado
+                    </h4>
+
+                    <div class="relative border-l-2 border-amber-200 ml-3 space-y-6 pl-6 my-2">
+                        <template x-for="(history, idx) in currentOrder?.history" :key="idx">
+                            <div class="relative">
+                                <div 
+                                    :class="idx === 0 ? 'bg-geek-primary ring-4 ring-amber-100' : 'bg-gray-300'" 
+                                    class="absolute -left-[31px] top-1.5 w-3.5 h-3.5 rounded-full border-2 border-white">
+                                </div>
+                                <div>
+                                    <span class="text-[11px] font-semibold text-gray-400 uppercase tracking-wider" x-text="history.date"></span>
+                                    <h5 class="text-sm font-bold text-gray-800" x-text="history.title"></h5>
+                                    <p class="text-xs text-gray-600 mt-0.5" x-text="history.description"></p>
+                                    <span x-show="history.location" class="inline-flex items-center gap-1 text-[11px] text-geek-primary font-medium mt-1 bg-amber-50 px-2 py-0.5 rounded border border-amber-100">
+                                        <i class="fa-solid fa-location-dot text-[10px]"></i> <span x-text="history.location"></span>
+                                    </span>
+                                </div>
+                            </div>
+                        </template>
+                    </div>
+                </div>
+
+                <!-- Right Column: Products & Payment -->
+                <div class="bg-white rounded-2xl p-6 shadow-md border border-geek-border flex flex-col justify-between">
+                    <div>
+                        <h4 class="text-base font-bold text-geek-darkBrown mb-4 flex items-center gap-2">
+                            <i class="fa-solid fa-bag-shopping text-geek-primary"></i> Itens do Pedido
+                        </h4>
+
+                        <div class="space-y-4 divide-y divide-gray-100">
+                            <template x-for="item in currentOrder?.items" :key="item.id">
+                                <div class="pt-3 first:pt-0 flex gap-3 items-center">
+                                    <img :src="item.image" :alt="item.name" class="w-16 h-16 object-cover rounded-lg border border-gray-200 bg-gray-50 shrink-0">
+                                    <div class="flex-1 min-w-0">
+                                        <span class="text-[10px] bg-amber-100 text-amber-800 px-1.5 py-0.5 rounded font-bold uppercase" x-text="item.tag"></span>
+                                        <h5 class="text-xs font-semibold text-gray-800 truncate mt-0.5" x-text="item.name"></h5>
+                                        <div class="flex items-center justify-between mt-1 text-xs">
+                                            <span class="text-gray-500" x-text="'Qtd: ' + item.quantity"></span>
+                                            <span class="font-bold text-geek-primary" x-text="'R$ ' + item.price.toFixed(2).replace('.', ',')"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </template>
+                        </div>
+                    </div>
+
+                    <!-- Payment Summary Box -->
+                    <div class="mt-6 pt-4 border-t border-gray-100 space-y-1.5 text-xs text-gray-600">
+                        <div class="flex justify-between">
+                            <span>Subtotal</span>
+                            <span class="font-medium" x-text="'R$ ' + (currentOrder?.subtotal || 0).toFixed(2).replace('.', ',')"></span>
+                        </div>
+                        <div class="flex justify-between text-emerald-600">
+                            <span>Desconto Pix (5%)</span>
+                            <span class="font-medium" x-text="'- R$ ' + (currentOrder?.discount || 0).toFixed(2).replace('.', ',')"></span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span>Frete</span>
+                            <span class="text-emerald-600 font-medium">GRÁTIS</span>
+                        </div>
+                        <div class="flex justify-between font-bold text-sm text-geek-darkBrown pt-2 border-t border-gray-200">
+                            <span>Total</span>
+                            <span class="text-geek-primary" x-text="'R$ ' + (currentOrder?.total || 0).toFixed(2).replace('.', ',')"></span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Order Not Found State -->
+        <div x-show="!currentOrder" class="bg-white rounded-2xl p-12 text-center shadow-md border border-geek-border">
+            <div class="w-16 h-16 bg-amber-100 text-geek-primary rounded-full flex items-center justify-center mx-auto mb-4 text-2xl">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+            <h3 class="text-xl font-bold text-geek-darkBrown">Nenhum pedido encontrado</h3>
+            <p class="text-sm text-gray-500 mt-1 max-w-md mx-auto">Verifique se o código digitado está correto ou selecione um dos códigos de teste acima.</p>
+        </div>
+
+    </main>
+
+    <!-- Support Help Modal -->
+    <div x-show="showSupportModal" 
+        x-transition:enter="transition ease-out duration-200"
+        x-transition:enter-start="opacity-0"
+        x-transition:enter-end="opacity-100"
+        x-transition:leave="transition ease-in duration-150"
+        x-transition:leave-start="opacity-100"
+        x-transition:leave-end="opacity-0"
+        class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-xs" 
+        style="display: none;">
+        
+        <div @click.away="showSupportModal = false" class="bg-white rounded-2xl max-w-md w-full p-6 shadow-2xl border border-geek-border relative">
+            <button @click="showSupportModal = false" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+
+            <div class="flex items-center gap-3 mb-4">
+                <div class="w-10 h-10 rounded-full bg-geek-primary text-white flex items-center justify-center font-bold">
+                    <i class="fa-solid fa-headset"></i>
+                </div>
+                <div>
+                    <h3 class="font-bold text-geek-darkBrown text-lg">Suporte UNIVERSAL GEEK</h3>
+                    <p class="text-xs text-gray-500">Estamos aqui para ajudar com seu pedido</p>
+                </div>
+            </div>
+
+            <p class="text-xs text-gray-600 mb-4">
+                Caso você tenha dúvidas sobre a entrega ou precise alterar dados de endereço do pedido <strong x-text="currentOrder?.id"></strong>, entre em contato através de um dos nossos canais:
+            </p>
+
+            <div class="space-y-3 text-sm">
+                <a href="#" class="flex items-center justify-between p-3 rounded-xl border border-gray-200 hover:border-emerald-500 hover:bg-emerald-50/50 transition group">
+                    <div class="flex items-center gap-3">
+                        <i class="fa-brands fa-whatsapp text-emerald-600 text-xl"></i>
+                        <div>
+                            <p class="font-bold text-gray-800 text-xs">Atendimento WhatsApp</p>
+                            <p class="text-[11px] text-gray-500">(91) 98888-7766</p>
+                        </div>
+                    </div>
+                    <i class="fa-solid fa-chevron-right text-gray-300 group-hover:text-emerald-600 text-xs"></i>
+                </a>
+
+                <a href="#" class="flex items-center justify-between p-3 rounded-xl border border-gray-200 hover:border-geek-primary hover:bg-amber-50/50 transition group">
+                    <div class="flex items-center gap-3">
+                        <i class="fa-regular fa-envelope text-geek-primary text-xl"></i>
+                        <div>
+                            <p class="font-bold text-gray-800 text-xs">E-mail de Suporte</p>
+                            <p class="text-[11px] text-gray-500">atendimento@universalgeek.com.br</p>
+                        </div>
+                    </div>
+                    <i class="fa-solid fa-chevron-right text-gray-300 group-hover:text-geek-primary text-xs"></i>
+                </a>
+            </div>
+
+            <button @click="showSupportModal = false" class="w-full mt-5 bg-geek-primary hover:bg-geek-primaryHover text-white font-semibold py-2.5 rounded-xl text-xs transition">
+                Fechar
+            </button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-geek-darkBrown text-amber-100 py-8 border-t border-geek-border mt-12 text-xs">
+        <div class="max-w-7xl mx-auto px-4 text-center space-y-3">
+            <p class="font-bold text-sm tracking-widest text-white uppercase">UNIVERSAL GEEK</p>
+            <p class="text-amber-200/80">Especialistas em Action Figures, Colecionáveis, Cartas Pokémon e Presentes Criativos.</p>
+            <p class="text-amber-200/50 text-[11px] pt-4 border-t border-amber-900">
+                &copy; 2026 UNIVERSAL GEEK - Todos os direitos reservados.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Script JS do Alpine.js / Lógica dos pedidos -->
+    <script src="envios.js"></script>
+</body>
+</html>

@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Universal Geek - Sua Loja Geek</title>
+  <link rel="stylesheet" href="projeto.css">
+</head>
+<body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ <!-- ====================================== INÍCIO DA PÁGINA ====================================== -->
+
+
+  <!-- == Mensagem de Desconto == -->
+  <header class="site-header">
+    <div class="top-bar">
+      <p>PAGANDO COM PIX VOCÊ GANHA 5% DE DESCONTO</p>
+    </div>
+
+
+
+
+    <div class="main-header">
+      <div class="header-container">
+       
+        <!-- Busca -->
+        <div class="search-box">
+          <input type="text" placeholder="O que deseja procurar?">
+          <button type="submit">🔎</button>
+        </div>
+
+
+
+
+
+
+        <!-- Logotipo -->
+        <div class="logo">
+          <h1 class="logo-text">UNIVERSAL <span class="logo-sub">GEEK</span></h1>
+        </div>
+
+
+
+
+        <!-------- PARTE DO ATENDIMENTO----- -->
+        <div class="user-menu">
+          <div class="dropdown-atendimento">
+            <a href="#" class="dropdown-trigger">
+              <span class="icon">🗯️</span> Atendimento
+            </a>
+           
+            <div class="dropdown-content">
+              <div class="info-item">
+                <span class="item-icon">📞</span>
+                <div>
+                  <small>Compre por telefone</small>
+                  <strong>(91) 99293-7652</strong>
+                </div>
+              </div>
+             
+              <div class="info-item">
+                <span class="item-icon">💬</span>
+                <div>
+                  <small>Fale no WhatsApp</small>
+                  <strong>Beatriz e Jordan</strong>
+                  <span>(91) 99293-7652</span>
+                </div>
+              </div>
+             
+              <div class="info-item">
+                <span class="item-icon">✉️</span>
+                <div>
+                  <small>Envie um e-mail</small>
+                  <strong>contato@universalgeek.com.br</strong>
+                </div>
+              </div>
+             
+              <div class="info-horario">
+                <strong>HORÁRIO DE ATENDIMENTO</strong>
+                <p>Segunda a sexta das 10h às 18:30h</p>
+              </div>
+            </div>
+          </div>
+
+
+ <!-------- PARTE DO CADASTRO----- -->
+          <a href="CADASTRO.HTML">Entrar / Cadastrar</a>
+         
+          <button class="cart-btn" id="openCartBtn">
+            🛒 <span class="cart-count" id="cartCount">0</span>
+          </button>
+
+
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <nav class="nav-menu">
+      <ul class="nav-list">
+        <li><a href="action-figures.html">ESTÁTUAS E ACTION FIGURES</a></li>
+        <li><a href="#">PRESENTES CRIATIVOS</a></li>
+        <li><a href="cartas-pokemon.html">CARTAS POKÉMON</a></li>
+         <li><a href="envios.html">SITUAÇÃO DA ENCOMENDA</a></li>
+      </ul>
+    </nav>
+  </header>
+
+
+
+
+
+
+<!-- ====================================== 2° PARTE ====================================== -->
+
+
+
+
+  <!-- ==================== OS PRODUTOS ==================== -->
+ <main class="main-content">
+  <h2 class="section-title">Destaques da Loja</h2>
+  <div class="products-grid">
+   
+    <!-- Produto 1: Chopper -->
+    <article class="product-card" data-id="1" data-title="Funko Pop - Tony Tony Chopper - One Piece - #2148" data-price="139.99" data-brand="One Piece" data-seller="Sempre Geek" data-badge="Últimas Unidades">
+      <div class="product-badge">Últimas Unidades</div>
+      <div class="product-gallery">
+        <button class="gallery-prev" onclick="changeImage(this, -1)">&#10094;</button>
+        <div class="product-image">
+          <img src="https://funko.com/on/demandware.static/-/Sites-funko-master-catalog/default/dw596e7560/images/funko/upload/1/86517_OP_S12_Chopper_POP_GLAM-1-WEB.png" alt="Chopper Foto 1" class="gallery-img active">
+          <img src="https://funko.com/on/demandware.static/-/Sites-funko-master-catalog/default/dw07b5acd1/images/funko/upload/1/86517_OP_S12_Chopper_POP_GLAM-WEB.png" alt="Chopper Foto 2" class="gallery-img">
+          <img src="https://realpopmania.com/cdn/shop/files/2148_0b0e8aca-a340-460b-80ac-fcc3dbbbbf0b_700x.png?v=1757709139" alt="Chopper Foto 3" class="gallery-img">
+        </div>
+        <button class="gallery-next" onclick="changeImage(this, 1)">&#10095;</button>
+      </div>
+      <h3 class="product-title">Funko Pop - Tony Tony Chopper - One Piece - #2148</h3>
+      <p class="product-price">R$ 139,99</p>
+      <p class="product-description">Colecionável oficial de Tony Tony Chopper em vinil. Detalhes fiéis ao médico dos Chapéus de Palha de One Piece.</p>
+      <button class="btn-add-cart">Adicionar ao Carrinho</button>
+    </article>
+
+
+    <!-- Produto 2: Doflamingo -->
+    <article class="product-card" data-id="2" data-title="Funko Pop - Doflamingo - One Piece - #2237" data-price="119.99" data-brand="One Piece" data-seller="Sempre Geek" data-badge="Em estoque">
+      <div class="product-badge">Em estoque</div>
+      <div class="product-gallery">
+        <button class="gallery-prev" onclick="changeImage(this, -1)">&#10094;</button>
+        <div class="product-image">
+          <img src="https://cdn.hmv.com/r/w-1280/p-webp/hmv/files/9d/9d270d7e-634b-4ece-914f-88cc3495752f.png" alt="Doflamingo Foto 1" class="gallery-img active">
+          <img src="https://cdn.hmv.com/r/w-640/hmv/files/ec/ec6e294f-40c5-4d9c-8d3c-e321cf0813fb.png" alt="Doflamingo Foto 2" class="gallery-img">
+          <img src="https://www.mypops.ca/cdn/shop/files/Doflamingo_001.png?v=1772550177&width=1445" alt="Doflamingo Foto 3" class="gallery-img">
+        </div>
+        <button class="gallery-next" onclick="changeImage(this, 1)">&#10095;</button>
+      </div>
+      <h3 class="product-title">Funko Pop - Doflamingo - One Piece - #2237</h3>
+      <p class="product-price">R$ 119,99</p>
+      <p class="product-description">Miniatura do icônico vilão Donquixote Doflamingo. Acabamento rico em detalhes com seu manto característico.</p>
+      <button class="btn-add-cart">Adicionar ao Carrinho</button>
+    </article>
+
+
+    <!-- Produto 3: Charizard -->
+    <article class="product-card" data-id="3" data-title="Carta Pokémon - Mega Charizard X e Y Ex - Fogo Fantasmagórico - 125/094" data-price="459.90" data-brand="Pokémon" data-seller="Copag Store" data-badge="Oferta Única">
+      <div class="product-badge">Oferta Única</div>
+      <div class="product-gallery">
+        <button class="gallery-prev" onclick="changeImage(this, -1)">&#10094;</button>
+        <div class="product-image">
+          <img src="https://www.pokemon.com/static-assets/content-assets/cms2/img/cards/web/ME2PT5/ME2PT5_EN_22.png" alt="Charizard Foto 1" class="gallery-img active">
+          <img src="https://www.supercollectors.es/wp-content/uploads/2025/11/857684-600x850.webp" alt="Charizard Foto 2" class="gallery-img">
+        </div>
+        <button class="gallery-next" onclick="changeImage(this, 1)">&#10095;</button>
+      </div>
+      <h3 class="product-title">Carta Pokémon - Mega Charizard X e Y Ex - Fogo Fantasmagórico - 125/094</h3>
+      <p class="product-price">R$ 459,90</p>
+      <p class="product-description">Card ultra raro de coleção. Edição Fogo Fantasmagórico (125/094), ideal para decks competitivos e exibição.</p>
+      <button class="btn-add-cart">Adicionar ao Carrinho</button>
+    </article>
+
+
+    <!-- Produto 4: Cuphead -->
+    <article class="product-card" data-id="4" data-title="Funko Pop - Aeroplane Ms. Chalice - Cuphead - #899" data-price="169.90" data-brand="Cuphead" data-seller="Copag Store" data-badge="Mais Vendidos">
+      <div class="product-badge">Mais Vendidos</div>
+      <div class="product-gallery">
+        <button class="gallery-prev" onclick="changeImage(this, -1)">&#10094;</button>
+        <div class="product-image">
+          <img src="https://funko.com/dw/image/v2/BGTS_PRD/on/demandware.static/-/Sites-funko-master-catalog/default/dw29537dfc/images/funko/61417-2.png?sw=800&sh=800" alt="Cuphead Foto 1" class="gallery-img active">
+          <img src="https://cdn-shopkit.com/usercontent/dream-pop-world/media/images/040ff4b-105139-funko-pop-games-cuphead-aeroplane-ms-chalice-899-2.png" alt="Cuphead Foto 2" class="gallery-img">
+          <img src="https://i5.walmartimages.com/seo/Funko-Pop-Games-Cuphead-Aeroplane-Chalice-Vinyl-Figure_793d7d1b-d295-4674-a574-ac600e264a86.884691f146a7e8dab5ac02f902e40336.png" alt="Cuphead Foto 3" class="gallery-img">
+        </div>
+        <button class="gallery-next" onclick="changeImage(this, 1)">&#10095;</button>
+      </div>
+      <h3 class="product-title">Funko Pop - Aeroplane Ms. Chalice - Cuphead - #899</h3>
+      <p class="product-price">R$ 169,90</p>
+      <p class="product-description">Figura em vinil inspirada na Ms. Chalice pilotando seu avião, vinda do universo clássico do jogo Cuphead.</p>
+      <button class="btn-add-cart">Adicionar ao Carrinho</button>
+    </article>
+
+
+    <!-- Produto 5: Freddy -->
+    <article class="product-card" data-id="5" data-title="Two Freddy Figure's - Five Nights At Freddy's- YouTooz" data-price="348.68" data-brand="Freddy" data-seller="Sempre Geek" data-badge="Melhor Preço">
+      <div class="product-badge">Melhor Preço</div>
+      <div class="product-gallery">
+        <button class="gallery-prev" onclick="changeImage(this, -1)">&#10094;</button>
+        <div class="product-image">
+          <img src="https://animeemporium.co.uk/cdn/shop/files/youtooz-five-nights-at-freddy-s-freddy-vinyl-figure-2-the-card-vault-2_1024x_3c9517fd-68fd-4024-8a88-4e3255066e75.png?v=1687189716&width=1946" alt="Freddy Foto 1" class="gallery-img active">
+          <img src="https://animeemporium.co.uk/cdn/shop/files/0-PhotoRoom.png-PhotoRoom_cee9e06a-1037-4b21-99bc-d1cb40382735.png?v=1699804335&width=1445" alt="Freddy Foto 2" class="gallery-img">
+          <img src="https://tiermaker.com/images/media/hero_images/2024/17010073/every-fnaf-youtooz-figure--17010073/170100731773075212.png" alt="Freddy Foto 3" class="gallery-img">
+          <img src="https://static.wikia.nocookie.net/the-youtooz/images/9/96/HauntedFreddyArtwork.webp/revision/latest?cb=20240212180556" alt="Freddy Foto 4" class="gallery-img">
+        </div>
+        <button class="gallery-next" onclick="changeImage(this, 1)">&#10095;</button>
+      </div>
+      <h3 class="product-title">Two Freddy Figure's - Five Nights At Freddy's- YouTooz</h3>
+      <p class="product-price">R$ 348,68</p>
+      <p class="product-description">Set duplo exclusivo da linha YouTooz trazendo variações do assustador Freddy Fazbear de FNAF.</p>
+      <button class="btn-add-cart">Adicionar ao Carrinho</button>
+    </article>
+
+
+    <!-- Produto 6: Yellow Rabbit -->
+    <article class="product-card" data-id="6" data-title="Yellow Rabbit Movie Figure - Five Nights At Freddy's- YouTooz" data-price="149.89" data-brand="Movie" data-seller="Sempre Geek" data-badge="Em estoque">
+      <div class="product-badge">Em estoque</div>
+      <div class="product-gallery">
+        <button class="gallery-prev" onclick="changeImage(this, -1)">&#10094;</button>
+        <div class="product-image">
+          <img src="https://pna247.co.uk/cdn/shop/files/01_13.png?v=1718197240" alt="Movie Foto 1" class="gallery-img active">
+          <img src="https://thecardvault.co.uk/cdn/shop/files/image2_6fbb43de-6ad5-4117-ad7f-dc0c292f8dac.png?v=1724275197" alt="Movie Foto 2" class="gallery-img">
+          <img src="https://thecardvault.co.uk/cdn/shop/files/image3_1f60dc69-6294-4edc-9ceb-98e4d2d87b6f.png?v=1724275200" alt="Movie Foto 3" class="gallery-img">
+        </div>
+        <button class="gallery-next" onclick="changeImage(this, 1)">&#10095;</button>
+      </div>
+      <h3 class="product-title">Yellow Rabbit Movie Figure - Five Nights At Freddy's- YouTooz</h3>
+      <p class="product-price">R$ 149,89</p>
+      <p class="product-description">Figure colecionável YouTooz do filme de FNAF, retratando o icônico Yellow Rabbit em detalhes.</p>
+      <button class="btn-add-cart">Adicionar ao Carrinho</button>
+    </article>
+
+
+    <!-- Produto 7: Digital Circus -->
+    <article class="product-card" data-id="7" data-title="Digital Circus - Jax Pelúcia - Glitch Oficial" data-price="89.60" data-brand="Digital Circus" data-seller="Copag Store" data-badge="Últimas Unidades">
+      <div class="product-badge">Últimas Unidades</div>
+      <div class="product-gallery">
+        <button class="gallery-prev" onclick="changeImage(this, -1)">&#10094;</button>
+        <div class="product-image">
+          <img src="https://glitchproductions.store/cdn/shop/files/jax-plush-1.png?v=1762231391&width=1200" alt="Jax Foto 1" class="gallery-img active">
+          <img src="https://glitchproductions.store/cdn/shop/files/jax-plush-2.png?v=1762231391&width=1600" alt="Jax Foto 2" class="gallery-img">
+        </div>
+        <button class="gallery-next" onclick="changeImage(this, 1)">&#10095;</button>
+      </div>
+      <h3 class="product-title">Digital Circus - Jax Pelúcia - Glitch Oficial</h3>
+      <p class="product-price">R$ 89,60</p>
+      <p class="product-description">Pelúcia oficial do carismático e sarcástico Jax, diretamente de The Amazing Digital Circus.</p>
+      <button class="btn-add-cart">Adicionar ao Carrinho</button>
+    </article>
+
+
+    <!-- Produto 8: Pokéball -->
+    <article class="product-card" data-id="8" data-title="Pokéball Crossbody Bag - Loungefly - Pokémon Oficial " data-price="242.88" data-brand="Pokémon" data-seller="Copag Store" data-badge="Últimas unidades">
+      <div class="product-badge">Últimas unidades</div>
+      <div class="product-gallery">
+        <button class="gallery-prev" onclick="changeImage(this, -1)">&#10094;</button>
+        <div class="product-image">
+          <img src="https://loungefly.com/on/demandware.static/-/Sites-funko-master-catalog/default/dwb2b6bc0e/images/loungefly/upload/PMTB0163-LFPOKEMONPOKEBALLCROSSBODY0018.png" alt="Pokeball Foto 1" class="gallery-img active">
+          <img src="https://loungefly.com/on/demandware.static/-/Sites-funko-master-catalog/default/dw57f55500/images/loungefly/upload/PMTB0163-LFPOKEMONPOKEBALLCROSSBODY0020.png" alt="Pokeball Foto 2" class="gallery-img">
+          <img src="https://loungefly.com/on/demandware.static/-/Sites-funko-master-catalog/default/dw2c253df0/images/loungefly/upload/PMTB0163-LFPOKEMONPOKEBALLCROSSBODY0022.png" alt="Pokeball Foto 3" class="gallery-img">
+          <img src="https://loungefly.com/on/demandware.static/-/Sites-funko-master-catalog/default/dwf11e48b8/images/loungefly/upload/PMTB0163-LFPOKEMONPOKEBALLCROSSBODY0021.png" alt="Pokeball Foto 4" class="gallery-img">
+        </div>
+        <button class="gallery-next" onclick="changeImage(this, 1)">&#10095;</button>
+      </div>
+      <h3 class="product-title">Pokéball Crossbody Bag - Loungefly - Pokémon Oficial</h3>
+      <p class="product-price">R$ 242,88</p>
+      <p class="product-description">Bolsa tiracolo oficial Loungefly em formato de Pokébola, perfeita para transporte diário com estilo geek.</p>
+      <button class="btn-add-cart">Adicionar ao Carrinho</button>
+    </article>
+
+
+    <!-- Produto 9: Nori Bag -->
+    <article class="product-card" data-id="9" data-title="Murder Drones - Nori Bag - Glitch Oficial " data-price="142.78" data-brand="Nori Bag" data-seller="Copag Store" data-badge="Promoção Limitada">
+      <div class="product-badge">Promoção Limitada</div>
+      <div class="product-gallery">
+        <button class="gallery-prev" onclick="changeImage(this, -1)">&#10094;</button>
+        <div class="product-image">
+          <img src="https://th.bing.com/th/id/R.26822113e60daec1e7c1ef6fc2335ba3?rik=pBY%2fUrkoDNswHQ&riu=http%3a%2f%2fglitchproductions.store%2fcdn%2fshop%2ffiles%2fnori-bag-1.png%3fv%3d1762502409&ehk=6wByBhCEIWGq4cdA2lBt5agdsklN%2bHRGcjH0yG8YNK8%3d&risl=&pid=ImgRaw&r=0" alt="Nori Foto 1" class="gallery-img active">
+          <img src="https://glitchproductions.store/cdn/shop/files/nori-bag-2.png?v=1762502409&width=1600" alt="Nori Foto 2" class="gallery-img">
+        </div>
+        <button class="gallery-next" onclick="changeImage(this, 1)">&#10095;</button>
+      </div>
+      <h3 class="product-title">Murder Drones - Nori Bag - Glitch Oficial</h3>
+      <p class="product-price">R$ 142,78</p>
+      <p class="product-description">Bolsa temática exclusiva da personagem Nori de Murder Drones, produzida oficialmente pela Glitch.</p>
+      <button class="btn-add-cart">Adicionar ao Carrinho</button>
+    </article>
+
+
+    <!-- Produto 10: Md Pins -->
+    <article class="product-card" data-id="10" data-title="Murder Drones - Pins - Glitch Oficial" data-price="48.88" data-brand="Md" data-seller="Copag Store" data-badge="Promoção Limitada">
+      <div class="product-badge">Promoção Limitada</div>
+      <div class="product-gallery">
+        <button class="gallery-prev" onclick="changeImage(this, -1)">&#10094;</button>
+        <div class="product-image">
+          <img src="https://glitchproductions.store/cdn/shop/files/n-pin-1.png?v=1762234884&width=800" alt="Md Foto 1" class="gallery-img active">
+          <img src="https://glitchproductionsmerch.shop/images/glitchproductionsmerch.shop/images/product/uzi-pin-1.png" alt="Md Foto 2" class="gallery-img">
+          <img src="https://th.bing.com/th/id/R.081292420658fdd9c8ee34050c39440f?rik=RrMnT%2bRDgmQwzg&riu=http%3a%2f%2fglitchproductions.store%2fcdn%2fshop%2ffiles%2fv-pin-1.png%3fv%3d1762234785&ehk=qFPjCzF8B5yyEgewwcvEHO5ddf8KLx84upK81Dg6vtw%3d&risl=&pid=ImgRaw&r=0" alt="Md Foto 3" class="gallery-img">
+          <img src="https://glitchproductionsstore.shop/images/glitchproductionsstore.shop/images/product/lizzie-pin-1.png" alt="Md Foto 4" class="gallery-img">
+          <img src="https://glitchproductionsstore.shop/images/glitchproductionsstore.shop/images/product/doll-pin-1.png" alt="Md Foto 5" class="gallery-img">
+        </div>
+        <button class="gallery-next" onclick="changeImage(this, 1)">&#10095;</button>
+      </div>
+      <h3 class="product-title">Murder Drones - Pins - Glitch Oficial</h3>
+      <p class="product-price">R$ 48,88</p>
+      <p class="product-description">Conjunto de broches metálicos colecionáveis com estampas exclusivas dos personagens de Murder Drones.</p>
+      <button class="btn-add-cart">Adicionar ao Carrinho</button>
+    </article>
+
+
+    <!-- Produto 11: Goobles -->
+    <article class="product-card" data-id="11" data-title="Gameoverse - Goobles Pelúcia - Glitch Oficial" data-price="122.88" data-brand="Goobles" data-seller="Copag Store" data-badge="Em estoque">
+      <div class="product-badge">Em estoque</div>
+      <div class="product-gallery">
+        <button class="gallery-prev" onclick="changeImage(this, -1)">&#10094;</button>
+        <div class="product-image">
+          <img src="https://i.ebayimg.com/images/g/ZVUAAeSwTLhqPIjs/s-l1600.png" alt="Goobles Foto 1" class="gallery-img active">
+          <img src="https://i.ebayimg.com/images/g/BWsAAeSwxiZqPIjt/s-l1600.png" alt="Goobles Foto 2" class="gallery-img">
+          <img src="https://i.ebayimg.com/images/g/RIYAAeSwAbNqPIju/s-l1600.png" alt="Goobles Foto 3" class="gallery-img">
+        </div>
+        <button class="gallery-next" onclick="changeImage(this, 1)">&#10095;</button>
+      </div>
+      <h3 class="product-title">Gameoverse - Goobles Pelúcia - Glitch Oficial</h3>
+      <p class="product-price">R$ 122,88</p>
+      <p class="product-description">Pelúcia macia e colecionável do Goobles, item oficial licenciado da franquia Gameoverse.</p>
+      <button class="btn-add-cart">Adicionar ao Carrinho</button>
+    </article>
+
+
+    <!-- Produto 12: Multifandom Pendantz -->
+    <article class="product-card" data-id="12" data-title="Multifandom - Pendantz - Glitch Oficial" data-price="137.88" data-brand="Md" data-seller="Copag Store" data-badge="Promoção Limitada">
+      <div class="product-badge">Promoção Limitada</div>
+      <div class="product-gallery">
+        <button class="gallery-prev" onclick="changeImage(this, -1)">&#10094;</button>
+        <div class="product-image">
+          <img src="https://glitchproductions.store/cdn/shop/files/N_Pendantz_Default.png?v=1776975504&width=400" alt="Mfp Foto 1" class="gallery-img active">
+          <img src="https://cdn.shopify.com/s/files/1/0786/4903/3026/files/Pomni-Default.png?v=1765582743&width=384" alt="Mfp Foto 2" class="gallery-img">
+          <img src="https://glitchproductions.store/cdn/shop/files/JaxPendantz_Spudsy_s.png?v=1780351074&width=1200" alt="Mfp Foto 3" class="gallery-img">
+          <img src="https://glitchproductions.store/cdn/shop/files/N_Pendantz_Camping.png?v=1776975504&width=1200" alt="Mfp Foto 4" class="gallery-img">
+          <img src="https://glitchproductions.store/cdn/shop/files/Pomni-Anime.png?v=1765582743&width=510" alt="Mdp Foto 5" class="gallery-img">
+          <img src="https://glitchproductions.store/cdn/shop/files/JaxPendantz_Anime.png?v=1780351074&width=450" alt="Mfp Foto 6" class="gallery-img">
+          <img src="https://glitchproductions.store/cdn/shop/files/N_Pendantz_Butler.png?v=1776975504&width=400" alt="Mfp Foto 7" class="gallery-img">
+          <img src="https://glitchproductions.store/cdn/shop/files/Pomni-Noir.png?v=1765582743&width=1200" alt="Mfp Foto 8" class="gallery-img">
+          <img src="https://glitchproductions.store/cdn/shop/files/JaxPendantz_Evil.png?v=1780351074&width=1200" alt="Mfp Foto 9" class="gallery-img">
+        </div>
+        <button class="gallery-next" onclick="changeImage(this, 1)">&#10095;</button>
+      </div>
+      <h3 class="product-title">Multifandom - Pendantz - Glitch Oficial</h3>
+      <p class="product-price">R$ 137,88</p>
+      <p class="product-description">Pingente multifandom oficial em edição limitada, reunindo diversos estilos e personagens das animações Glitch.</p>
+      <button class="btn-add-cart">Adicionar ao Carrinho</button>
+    </article>
+
+
+    <!-- Produto 13: Attack on Titan -->
+    <article class="product-card" data-id="13" data-title="Mikasa Ackerman Levi Eren Yeager Action & Toy Figures Attack on Titan" data-price="342.78" data-brand="Attack on Titan" data-seller="Copag Store" data-badge="Promoção Limitada">
+      <div class="product-badge">Promoção Limitada</div>
+      <div class="product-gallery">
+        <button class="gallery-prev" onclick="changeImage(this, -1)">&#10094;</button>
+        <div class="product-image">
+          <img src="https://www.1999.co.jp/itbig103/11034375a.jpg" alt="AOT Foto 1" class="gallery-img active">
+          <img src="https://m.media-amazon.com/images/I/41EjT3FeRdL._AC_UF894,1000_QL80_.jpg" alt="AOT Foto 2" class="gallery-img">
+        </div>
+        <button class="gallery-next" onclick="changeImage(this, 1)">&#10095;</button>
+      </div>
+      <h3 class="product-title">Mikasa Ackerman Levi Eren Yeager Action & Toy Figures Attack on Titan</h3>
+      <p class="product-price">R$ 342,78</p>
+      <p class="product-description">Figures detalhadas dos protagionistas de Attack on Titan, equipados com acessórios do DMT.</p>
+      <button class="btn-add-cart">Adicionar ao Carrinho</button>
+    </article>
+
+
+    <!-- Produto 14: Sanji -->
+    <article class="product-card" data-id="14" data-title="Sanji 16cm Bandai Tamashii Nations Figuarts Statue - Sanji One Piece" data-price="248.88" data-brand="One Piece" data-seller="Copag Store" data-badge="Promoção Limitada">
+      <div class="product-badge">Promoção Limitada</div>
+      <div class="product-gallery">
+        <button class="gallery-prev" onclick="changeImage(this, -1)">&#10094;</button>
+        <div class="product-image">
+          <img src="https://www.nicepng.com/png/detail/838-8386227_zero-sanji-16cm-bandai-tamashii-nations-figuarts-statue.png" alt="Sanji Foto 1" class="gallery-img active">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuU7mVndpdVRpRQrXIGSS6X3ilIGwKpGbHPTj4rKMXP-RKeVthcwkl_oY&s=10" alt="Sanji Foto 2" class="gallery-img">
+        </div>
+        <button class="gallery-next" onclick="changeImage(this, 1)">&#10095;</button>
+      </div>
+      <h3 class="product-title">Sanji 16cm Bandai Tamashii Nations Figuarts Statue - Sanji One Piece</h3>
+      <p class="product-price">R$ 248,88</p>
+      <p class="product-description">Estátua original Bandai Figuarts Zero do cozinheiro dos Chapéus de Palha, com efeito visual dinâmico.</p>
+      <button class="btn-add-cart">Adicionar ao Carrinho</button>
+    </article>
+
+
+    <!-- Produto 15: Mega Sceptile -->
+    <article class="product-card" data-id="15" data-title="Mega Sceptile ex Pokemon Card" data-price="144.88" data-brand="Pokémon" data-seller="Copag Store" data-badge="Em estoque">
+      <div class="product-badge">Em estoque</div>
+      <div class="product-gallery">
+        <button class="gallery-prev" onclick="changeImage(this, -1)">&#10094;</button>
+        <div class="product-image">
+          <img src="https://images.pokemontcg.io/xy7/85.png" alt="Sceptile Foto 1" class="gallery-img active">
+        </div>
+        <button class="gallery-next" onclick="changeImage(this, 1)">&#10095;</button>
+      </div>
+      <h3 class="product-title">Mega Sceptile ex Pokemon Card</h3>
+      <p class="product-price">R$ 144,88</p>
+      <p class="product-description">Carta TCG de Pokémon em versão EX com acabamento holográfico do Mega Sceptile.</p>
+      <button class="btn-add-cart">Adicionar ao Carrinho</button>
+    </article>
+
+
+    <!-- Produto 16: Mega Feraligatr -->
+    <article class="product-card" data-id="16" data-title="Mega Feraligatr EX Pokemon Card" data-price="177.88" data-brand="Pokémon" data-seller="Copag Store" data-badge="Promoção Limitada">
+      <div class="product-badge">Promoção Limitada</div>
+      <div class="product-gallery">
+        <button class="gallery-prev" onclick="changeImage(this, -1)">&#10094;</button>
+        <div class="product-image">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQkRFDJA14VEMPGiwUDZAtfEIMzPZHrlpiF6O0r40xJk3vVDyKf4oMxczE&s=10" alt="Feraligatr Foto 1" class="gallery-img active">
+        </div>
+        <button class="gallery-next" onclick="changeImage(this, 1)">&#10095;</button>
+      </div>
+      <h3 class="product-title">Mega Feraligatr Pokemon Card</h3>
+      <p class="product-price">R$ 177,88</p>
+      <p class="product-description">Card especial de coleção do tipo água em versão EX, ideal para amantes de cartas clássicas.</p>
+      <button class="btn-add-cart">Adicionar ao Carrinho</button>
+    </article>
+
+
+  </div>
+</main>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- ==================== A PARTE DO CARRINHO CARRINHO ==================== -->
+  <div class="cart-overlay" id="cartOverlay">
+    <div class="cart-modal">
+      <div class="modal-header">
+        <h3>Seu Carrinho</h3>
+        <button class="close-modal" id="closeCartBtn">&times;</button>
+      </div>
+     
+      <div class="cart-items-list" id="cartItemsList"></div>
+     
+      <div class="promo-banner">🎁 Aniversário GG: é hora de aproveitar!</div>
+     
+      <div class="cart-summary">
+        <span>Subtotal: </span>
+        <span class="subtotal-value" id="cartSubtotal">R$ 0,00</span>
+      </div>
+     
+      <div class="cart-actions">
+        <button class="btn-continue" id="continueShoppingBtn">Continuar comprando</button>
+        <a href="carrinho.html" class="btn-checkout">Concluir Compra</a>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ <!-- ==================== RODA-PÉ E AS AVALIAÇÕES DA LOJA ==================== -->
+
+
+
+
+
+
+
+
+<section class="reviews-section">
+  <h2>O que os geeks dizem</h2>
+  <div class="reviews-container">
+    <div class="review-card">
+      <div class="stars">★★★★★</div>
+      <p>"Chegou super rápido e o Funko do Chopper veio impecável. Embalagem nota 10!"</p>
+      <span>— Lucas M.</span>
+    </div>
+    <div class="review-card">
+      <div class="stars">★★★★★</div>
+      <p>"A carta do Charizard veio ultra bem protegida no top loader. Comprarei mais vezes!"</p>
+      <span>— Rafaela S.</span>
+    </div>
+    <div class="review-card">
+      <div class="stars">★★★★★</div>
+      <p>"Loja incrível, atendimento excelente pelo WhatsApp. Recomendadíssimo!"</p>
+      <span>— Gabriel T.</span>
+    </div>
+  </div>
+</section>
+
+
+  <!-- ==================== RODA PÉ ==================== -->
+
+
+<footer class="main-footer">
+  <div class="footer-container">
+    <div class="footer-col">
+      <h3>Universal Geek</h3>
+      <p>Sua loja definitiva de colecionáveis, action figures e card games.</p>
+    </div>
+
+
+
+
+    <div class="footer-col">
+      <h4>Categorias</h4>
+      <ul>
+        <li><a href="#">Estátuas e Action Figures</a></li>
+        <li><a href="#">Presentes Criativos</a></li>
+        <li><a href="#">Cartas Pokémon</a></li>
+      </ul>
+    </div>
+
+
+
+
+    <div class="footer-col">
+      <h4>Atendimento</h4>
+      <ul>
+        <li><a href="#">Ajuda & Suporte</a></li>
+        <li><a href="#">Envios e Prazos</a></li>
+        <li><a href="#">Trocas e Devoluções</a></li>
+      </ul>
+    </div>
+
+
+
+
+    <div class="footer-col">
+      <h4>Pagamento seguro</h4>
+      <p>Pix (5% OFF), Cartões de Crédito e Boleto</p>
+    </div>
+  </div>
+
+
+
+
+  <div class="footer-bottom">
+    <p>&copy; 2026 Universal Geek. Todos os direitos reservados.</p>
+  </div>
+</footer>
+
+
+<!-- Modal de Seleção de Variação -->
+<div id="variationModal" class="variation-modal-overlay">
+  <div class="variation-modal-card">
+    <button id="closeVarModal" class="variation-modal-close" aria-label="Fechar">&times;</button>
+   
+    <div class="variation-modal-header">
+      <img id="varModalPreview" src="" alt="Preview" class="variation-modal-img">
+      <div class="variation-modal-info">
+        <h4 id="varModalTitle" class="variation-modal-title"></h4>
+        <div id="varModalPrice" class="variation-modal-price"></div>
+      </div>
+    </div>
+
+
+    <div class="variation-modal-body">
+      <label class="variation-modal-label">Selecione a opção:</label>
+      <div id="varModalOptions" class="variation-modal-options"></div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<!-- Modal (Janela Pop-up) -->
+<div id="product-modal" class="modal">
+  <div class="modal-content">
+    <span class="close-btn" onclick="closeModal()">&times;</span>
+    <div class="modal-body">
+      <div class="modal-image-container">
+        <img id="modal-img" src="" alt="Produto">
+      </div>
+      <div class="modal-info">
+        <span id="modal-badge" class="product-badge"></span>
+        <h2 id="modal-title"></h2>
+        <p id="modal-seller"></p>
+        <p id="modal-price" class="product-price"></p>
+        <hr>
+        <p id="modal-description"></p>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="projeto.js"></script>
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

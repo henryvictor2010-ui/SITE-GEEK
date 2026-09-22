@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cartas Pokémon - Universal Geek</title>
+  <link rel="stylesheet" href="projeto.css">
+</head>
+<body>
+
+  <!-- HEADER PRINCIPAL -->
+  <header class="site-header">
+    <div class="top-bar">
+      <span>FRETE GRÁTIS PARA TODO O BRASIL EM COMPRAS ACIMA DE R$ 199</span>
+    </div>
+    
+    <div class="main-header">
+      <div class="header-container">
+        <div class="search-box">
+          <input type="text" placeholder="Buscar cartas, boosters, decks...">
+          <button type="submit">🔍</button>
+        </div>
+
+        <div class="logo">
+          <span class="logo-text">UNIVERSAL <span class="logo-sub">GEEK</span></span>
+        </div>
+
+        <div class="user-menu">
+          <div class="dropdown-atendimento">
+            <div class="dropdown-trigger">
+              <span>Atendimento</span>
+              <small>▼</small>
+            </div>
+            <div class="dropdown-content">
+              <div class="info-item">
+                <span class="item-icon">💬</span>
+                <div>
+                  <small>WhatsApp</small>
+                  <strong>(91) 98000-0000</strong>
+                </div>
+              </div>
+              <div class="info-item">
+                <span class="item-icon">✉️</span>
+                <div>
+                  <small>E-mail</small>
+                  <span>contato@universalgeek.com.br</span>
+                </div>
+              </div>
+              <div class="info-horario">
+                <strong>Horário de Atendimento</strong>
+                <p>Segunda a Sexta: 09h às 18h</p>
+              </div>
+            </div>
+          </div>
+
+          <a href="#" class="cart-btn" id="open-cart-btn">
+            <span>🛒 Carrinho</span>
+            <span class="cart-count" id="cart-count">0</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- MENU DE NAVEGAÇÃO -->
+    <nav class="nav-menu">
+      <ul class="nav-list">
+        <li><a href="index.html">INÍCIO</a></li>
+        <li><a href="cartas-pokemon.html" style="color: var(--terracota);">CARTAS POKÉMON</a></li>
+        <li><a href="action-figures.html">ACTION FIGURES</a></li>
+        <li><a href="index.html#promocoes">PROMOÇÕES</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- CONTEÚDO PRINCIPAL: POKÉMON TCG -->
+  <main class="main-content">
+    <h1 class="section-title">Pokémon TCG - Cartas & Decks</h1>
+
+    <div class="products-grid">
+
+      <!-- PRODUTO 1: BOOSTER BOX -->
+      <div class="product-card" 
+           data-id="pk-01" 
+           data-name="Booster Box Pokémon TCG - Escarlate e Violeta" 
+           data-price="289.90" 
+           data-seller="Universal Geek" 
+           data-description="Caixa selada contendo 36 pacotes de booster da coleção Escarlate e Violeta. Cada pacote contém 6 cartas no formato em português."
+           data-image="https://via.placeholder.com/200x160?text=Booster+Box">
+        <span class="product-badge">Destaque</span>
+        <div class="product-gallery">
+          <button class="gallery-prev">‹</button>
+          <div class="product-image">
+            <img src="https://via.placeholder.com/200x160?text=Booster+Box+Frente" class="gallery-img active" alt="Booster Box Frente">
+            <img src="https://via.placeholder.com/200x160?text=Booster+Box+Verso" class="gallery-img" alt="Booster Box Verso">
+          </div>
+          <button class="gallery-next">›</button>
+        </div>
+        <h3 class="product-title">Booster Box Pokémon TCG - Escarlate e Violeta</h3>
+        <p class="product-price">R$ 289,90</p>
+        <button class="btn-add-cart">Adicionar ao Carrinho</button>
+      </div>
+
+      <!-- PRODUTO 2: CARTA AVULSA / ULTRA RARA -->
+      <div class="product-card" 
+           data-id="pk-02" 
+           data-name="Charizard ex Charizard Raro Ilustração Especial" 
+           data-price="450.00" 
+           data-seller="Universal Geek" 
+           data-description="Carta avulsa no formato Near Mint (NM). Ilustração especial ultrarrara, enviada em sleeve protetor de alta qualidade e toploader duro."
+           data-image="https://via.placeholder.com/200x160?text=Charizard+ex">
+        <div class="product-gallery">
+          <button class="gallery-prev">‹</button>
+          <div class="product-image">
+            <img src="https://via.placeholder.com/200x160?text=Charizard+ex" class="gallery-img active" alt="Charizard ex">
+          </div>
+          <button class="gallery-next">›</button>
+        </div>
+        <h3 class="product-title">Charizard ex - Raro Ilustração Especial (NM)</h3>
+        <p class="product-price">R$ 450,00</p>
+        <button class="btn-add-cart">Adicionar ao Carrinho</button>
+      </div>
+
+      <!-- PRODUTO 3: DECK ESTRATÉGICO -->
+      <div class="product-card" 
+           data-id="pk-03" 
+           data-name="Baralho Batalha Deluxe - Meowscarada ex" 
+           data-price="129.90" 
+           data-seller="Universal Geek" 
+           data-description="Baralho pronto para jogar de 60 cartas, incluindo 1 carta Meowscarada ex em papel alumínio, caixa de baralho e contadores de dano."
+           data-image="https://via.placeholder.com/200x160?text=Deck+Meowscarada">
+        <div class="product-gallery">
+          <button class="gallery-prev">‹</button>
+          <div class="product-image">
+            <img src="https://via.placeholder.com/200x160?text=Deck+Meowscarada" class="gallery-img active" alt="Deck Meowscarada">
+          </div>
+          <button class="gallery-next">›</button>
+        </div>
+        <h3 class="product-title">Baralho Batalha Deluxe - Meowscarada ex</h3>
+        <p class="product-price">R$ 129,90</p>
+        <button class="btn-add-cart">Adicionar ao Carrinho</button>
+      </div>
+
+    </div>
+  </main>
+
+
+
+  <!-- MODAIS E RODAPÉ (REUTILIZADOS) -->
+  <div id="product-modal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn" id="close-modal-btn">&times;</span>
+      <div class="modal-body">
+        <div class="modal-image-container">
+          <img id="modal-image" src="" alt="Produto">
+        </div>
+        <div class="modal-info">
+          <h2 id="modal-title"></h2>
+          <p id="modal-seller"></p>
+          <p id="modal-description"></p>
+          <p id="modal-price" class="product-price"></p>
+          <button class="btn-add-cart" id="modal-add-cart-btn">Adicionar ao Carrinho</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cart-overlay" id="cart-overlay">
+    <div class="cart-modal">
+      <div class="modal-header">
+        <h2>Seu Carrinho</h2>
+        <button class="close-modal" id="close-cart-btn">&times;</button>
+      </div>
+      <div class="cart-items-list" id="cart-items-container"></div>
+      <div class="promo-banner">COMPRAS ACIMA DE R$ 199 TÊM FRETE GRÁTIS!</div>
+      <div class="cart-summary">
+        <p>Subtotal: <span class="subtotal-value" id="cart-subtotal">R$ 0,00</span></p>
+      </div>
+      <div class="cart-actions">
+        <button class="btn-continue" id="continue-shopping">Continuar Comprando</button>
+        <a href="#" class="btn-checkout">Finalizar Compra</a>
+      </div>
+    </div>
+  </div>
+
+  <footer class="main-footer">
+    <div class="footer-bottom">
+      <p>&copy; 2026 Universal Geek. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="projeto.js"></script>
+</body>
+</html>

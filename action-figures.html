@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Action Figures - Universal Geek</title>
+  <link rel="stylesheet" href="projeto.css">
+</head>
+<body>
+
+  <!-- HEADER PRINCIPAL -->
+  <header class="site-header">
+    <div class="top-bar">
+      <span>FRETE GRÁTIS PARA TODO O BRASIL EM COMPRAS ACIMA DE R$ 199</span>
+    </div>
+    
+    <div class="main-header">
+      <div class="header-container">
+        <div class="search-box">
+          <input type="text" placeholder="Buscar estátuas, colecionáveis...">
+          <button type="submit">🔍</button>
+        </div>
+
+        <div class="logo">
+          <span class="logo-text">UNIVERSAL <span class="logo-sub">GEEK</span></span>
+        </div>
+
+        <div class="user-menu">
+          <a href="#" class="cart-btn" id="open-cart-btn">
+            <span>🛒 Carrinho</span>
+            <span class="cart-count" id="cart-count">0</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- MENU DE NAVEGAÇÃO -->
+    <nav class="nav-menu">
+      <ul class="nav-list">
+        <li><a href="index.html">INÍCIO</a></li>
+        <li><a href="cartas-pokemon.html">CARTAS POKÉMON</a></li>
+        <li><a href="action-figures.html" style="color: var(--terracota);">ACTION FIGURES</a></li>
+    
+      </ul>
+    </nav>
+  </header>
+
+  <!-- CONTEÚDO PRINCIPAL: ACTION FIGURES -->
+  <main class="main-content">
+    <h1 class="section-title">Action Figures e Estátuas Colecionáveis</h1>
+
+    <div class="products-grid">
+
+      <!-- PRODUTO 1: COM VARIAÇÕES (TAMANHO/VERSÃO) -->
+      <div class="product-card" 
+           data-id="af-01" 
+           data-name="Figure Satoru Gojo - Jujutsu Kaisen" 
+           data-price="349.90" 
+           data-seller="Universal Geek" 
+           data-description="Figura detalhada em PVC do personagem Satoru Gojo realizando a Expansão de Domínio. Acompanha base expositora e cabeça intercambiável."
+           data-image="https://via.placeholder.com/200x160?text=Gojo+Figure"
+           data-has-variations="true"
+           data-variations='[
+             {"name": "Versão Padrão (20cm)", "price": 349.90},
+             {"name": "Versão Deluxe com LED (25cm)", "price": 499.90}
+           ]'>
+        <span class="product-badge">Mais Vendido</span>
+        <div class="product-gallery">
+          <button class="gallery-prev">‹</button>
+          <div class="product-image">
+            <img src="https://via.placeholder.com/200x160?text=Gojo+Padr%C3%A3o" class="gallery-img active" alt="Gojo Padrão">
+            <img src="https://via.placeholder.com/200x160?text=Gojo+LED" class="gallery-img" alt="Gojo LED">
+          </div>
+          <button class="gallery-next">›</button>
+        </div>
+        <h3 class="product-title">Figure Satoru Gojo - Jujutsu Kaisen</h3>
+        <p class="product-price">A partir de R$ 349,90</p>
+        <button class="btn-add-cart">Adicionar ao Carrinho</button>
+      </div>
+
+      <!-- PRODUTO 2: MERUEM HUNTER X HUNTER -->
+      <div class="product-card" 
+           data-id="af-02" 
+           data-name="Estátua Rei Meruem - Hunter x Hunter" 
+           data-price="520.00" 
+           data-seller="Universal Geek" 
+           data-description="Estátua em resina do Rei Ant Meruem em pose de trono. Acabamento feito à mão com pintura de altíssima precisão."
+           data-image="https://via.placeholder.com/200x160?text=Meruem+Figure">
+        <div class="product-gallery">
+          <button class="gallery-prev">‹</button>
+          <div class="product-image">
+            <img src="https://via.placeholder.com/200x160?text=Meruem+Angle+1" class="gallery-img active" alt="Meruem 1">
+            <img src="https://via.placeholder.com/200x160?text=Meruem+Angle+2" class="gallery-img" alt="Meruem 2">
+          </div>
+          <button class="gallery-next">›</button>
+        </div>
+        <h3 class="product-title">Estátua Rei Meruem - Hunter x Hunter</h3>
+        <p class="product-price">R$ 520,00</p>
+        <button class="btn-add-cart">Adicionar ao Carrinho</button>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- MODAL DE VARIAÇÃO -->
+  <div class="variation-modal-overlay" id="variation-modal">
+    <div class="variation-modal-card">
+      <button class="variation-modal-close" id="close-variation-modal">&times;</button>
+      <div class="variation-modal-header">
+        <img id="var-modal-img" src="" class="variation-modal-img" alt="Preview">
+        <div class="variation-modal-info">
+          <h4 id="var-modal-title" class="variation-modal-title"></h4>
+          <span id="var-modal-price" class="variation-modal-price"></span>
+        </div>
+      </div>
+      <div class="variation-modal-body">
+        <span class="variation-modal-label">Selecione uma opção:</span>
+        <div id="var-modal-options" class="variation-modal-options"></div>
+      </div>
+      <button class="btn-confirm-variation" id="confirm-variation-btn">Confirmar Escolha</button>
+    </div>
+  </div>
+
+  <!-- MODAIS E RODAPÉ (REUTILIZADOS) -->
+  <div id="product-modal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn" id="close-modal-btn">&times;</span>
+      <div class="modal-body">
+        <div class="modal-image-container">
+          <img id="modal-image" src="" alt="Produto">
+        </div>
+        <div class="modal-info">
+          <h2 id="modal-title"></h2>
+          <p id="modal-seller"></p>
+          <p id="modal-description"></p>
+          <p id="modal-price" class="product-price"></p>
+          <button class="btn-add-cart" id="modal-add-cart-btn">Adicionar ao Carrinho</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cart-overlay" id="cart-overlay">
+    <div class="cart-modal">
+      <div class="modal-header">
+        <h2>Seu Carrinho</h2>
+        <button class="close-modal" id="close-cart-btn">&times;</button>
+      </div>
+      <div class="cart-items-list" id="cart-items-container"></div>
+      <div class="promo-banner">COMPRAS ACIMA DE R$ 199 TÊM FRETE GRÁTIS!</div>
+      <div class="cart-summary">
+        <p>Subtotal: <span class="subtotal-value" id="cart-subtotal">R$ 0,00</span></p>
+      </div>
+      <div class="cart-actions">
+        <button class="btn-continue" id="continue-shopping">Continuar Comprando</button>
+        <a href="#" class="btn-checkout">Finalizar Compra</a>
+      </div>
+    </div>
+  </div>
+
+  <footer class="main-footer">
+    <div class="footer-bottom">
+      <p>&copy; 2026 Universal Geek. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="projeto.js"></script>
+</body>
+</html>

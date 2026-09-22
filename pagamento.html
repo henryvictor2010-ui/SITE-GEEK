@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset=<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pagamento - Loja Geek</title>
+  <link rel="stylesheet" href="pagamento.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="main-header">
+      <div class="header-container">
+        <a href="index.html" class="logo-text">Universal <span class="logo-sub">Geek</span></a>
+      </div>
+    </div>
+    <nav class="nav-menu">
+      <ul class="nav-list">
+        <li><a href="index.html">INÍCIO</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="checkout-container">
+
+    <!-- COLUNA ESQUERDA: FORMULÁRIOS E FORMA DE PAGAMENTO -->
+    <section class="checkout-left-col">
+
+      <!-- DADOS DE ENTREGA -->
+      <div class="card-box">
+        <h3 class="card-title">📦 Endereço de Entrega</h3>
+        <form id="shippingForm" class="form-grid">
+          <div class="form-group full-width">
+            <label for="fullName">Nome Completo</label>
+            <input type="text" id="fullName" placeholder="Ex: Henry Victor" required>
+          </div>
+          <div class="form-group">
+            <label for="cpf">CPF</label>
+            <input type="text" id="cpf" placeholder="000.000.000-00" required>
+          </div>
+          <div class="form-group">
+            <label for="phone">Telefone / WhatsApp</label>
+            <input type="tel" id="phone" placeholder="(91) 98888-8888" required>
+          </div>
+          <div class="form-group">
+            <label for="cep">CEP</label>
+            <input type="text" id="cep" placeholder="66000-000" required>
+          </div>
+          <div class="form-group">
+            <label for="city">Cidade / UF</label>
+            <input type="text" id="city" placeholder="Belém / PA" required>
+          </div>
+          <div class="form-group full-width">
+            <label for="address">Endereço (Rua, Av.)</label>
+            <input type="text" id="address" placeholder="Rua..." required>
+          </div>
+          <div class="form-group">
+            <label for="number">Número</label>
+            <input type="text" id="number" placeholder="123" required>
+          </div>
+          <div class="form-group">
+            <label for="complement">Complemento</label>
+            <input type="text" id="complement" placeholder="Apto, Bloco...">
+          </div>
+        </form>
+      </div>
+
+      <!-- FORMA DE PAGAMENTO -->
+      <div class="card-box">
+        <h3 class="card-title">💳 Opções de Pagamento</h3>
+        
+        <div class="payment-tabs">
+          <button type="button" class="tab-btn active" onclick="switchPayment('pix', event)">⚡ PIX</button>
+          <button type="button" class="tab-btn" onclick="switchPayment('credit', event)">💳 Cartão de Crédito</button>
+          <button type="button" class="tab-btn" onclick="switchPayment('boleto', event)">📄 Boleto</button>
+        </div>
+
+        <!-- ABA PIX -->
+        <div id="payment-pix" class="payment-method-content active">
+          <div class="pix-box">
+            <strong>Aprovação Instantânea!</strong>
+            <p>Ganhe 5% de desconto extra pagando via PIX.</p>
+            <p style="margin-top: 15px; font-size: 0.8rem; color: var(--text-muted);">O código QR Code será gerado após clicar em concluir pedido.</p>
+          </div>
+        </div>
+
+        <!-- ABA CARTÃO DE CRÉDITO -->
+        <div id="payment-credit" class="payment-method-content">
+          <form class="form-grid">
+            <div class="form-group full-width">
+              <label for="cardNumber">Número do Cartão</label>
+              <input type="text" id="cardNumber" placeholder="0000 0000 0000 0000">
+            </div>
+            <div class="form-group full-width">
+              <label for="cardHolder">Nome Impresso no Cartão</label>
+              <input type="text" id="cardHolder" placeholder="Como no cartão">
+            </div>
+            <div class="form-group">
+              <label for="cardExpiry">Validade</label>
+              <input type="text" id="cardExpiry" placeholder="MM/AA">
+            </div>
+            <div class="form-group">
+              <label for="cardCvc">CVC / CVV</label>
+              <input type="text" id="cardCvc" placeholder="123">
+            </div>
+            <div class="form-group full-width">
+              <label for="installments">Parcelas</label>
+              <select id="installments">
+                <option value="1">1x à vista (sem juros)</option>
+                <option value="2">2x sem juros</option>
+                <option value="3">3x sem juros</option>
+              </select>
+            </div>
+          </form>
+        </div>
+
+        <!-- ABA BOLETO -->
+        <div id="payment-boleto" class="payment-method-content">
+          <div class="boleto-box">
+            <strong>Atenção:</strong>
+            <p>• O boleto vence em 2 dias úteis.</p>
+            <p>• A compensação bancária pode levar até 3 dias úteis após o pagamento.</p>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- COLUNA DIREITA: RESUMO DO PEDIDO -->
+    <aside class="checkout-right-col">
+      <div class="card-box">
+        <h3 class="card-title">🛒 Resumo do Pedido</h3>
+
+        <div id="orderItemsContainer"></div>
+
+        <div class="summary-row">
+          <span>Subtotal:</span>
+          <span id="checkoutSubtotal">R$ 0,00</span>
+        </div>
+        
+        <div class="summary-row">
+          <span>Frete:</span>
+          <span id="checkoutShipping">Grátis</span>
+        </div>
+
+        <div class="summary-row" id="checkoutDiscountRow" style="display: none; color: #2e7d32; font-weight: 600;">
+          <span>Desconto:</span>
+          <span id="checkoutDiscount">- R$ 0,00</span>
+        </div>
+
+        <div class="summary-row total">
+          <span>Total:</span>
+          <span id="checkoutTotal">R$ 0,00</span>
+        </div>
+
+        <button type="button" class="btn-pay" onclick="processOrder()">Confirmar e Pagar</button>
+        <a href="carrinho.html" class="btn-back">Voltar ao Carrinho</a>
+      </div>
+    </aside>
+
+  </main>
+
+  <script>
+    function switchPayment(method, evt) {
+      document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+      document.querySelectorAll('.payment-method-content').forEach(content => content.classList.remove('active'));
+
+      if (evt && evt.target) {
+        evt.target.classList.add('active');
+      }
+      document.getElementById(`payment-${method}`).classList.add('active');
+    }
+
+    function loadOrderSummary() {
+      const cart = JSON.parse(localStorage.getItem('my_geek_cart')) || [];
+      const cartSummary = JSON.parse(localStorage.getItem('my_geek_cart_summary')) || {
+        shipping: 0,
+        discount: 0
+      };
+
+      const itemsContainer = document.getElementById('orderItemsContainer');
+      const subtotalEl = document.getElementById('checkoutSubtotal');
+      const shippingEl = document.getElementById('checkoutShipping');
+      const discountRow = document.getElementById('checkoutDiscountRow');
+      const discountEl = document.getElementById('checkoutDiscount');
+      const totalEl = document.getElementById('checkoutTotal');
+
+      if (cart.length === 0) {
+        itemsContainer.innerHTML = '<p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 15px;">Seu carrinho está vazio.</p>';
+        subtotalEl.innerText = 'R$ 0,00';
+        shippingEl.innerText = 'R$ 0,00';
+        discountRow.style.display = 'none';
+        totalEl.innerText = 'R$ 0,00';
+        return;
+      }
+
+      let subtotal = 0;
+      itemsContainer.innerHTML = '';
+
+      cart.forEach(item => {
+        subtotal += item.price * item.quantity;
+        itemsContainer.innerHTML += `
+          <div class="order-item-mini">
+            <img src="${item.img}" alt="${item.title}">
+            <div class="order-item-details">
+              <h5>${item.title}</h5>
+              <span>Qtd: ${item.quantity} | R$ ${item.price.toFixed(2).replace('.', ',')}</span>
+            </div>
+          </div>
+        `;
+      });
+
+      const shipping = Number(cartSummary.shipping) || 0;
+      const discount = Number(cartSummary.discount) || 0;
+      const total = Math.max(0, subtotal + shipping - discount);
+
+      subtotalEl.innerText = `R$ ${subtotal.toFixed(2).replace('.', ',')}`;
+      shippingEl.innerText = shipping === 0 ? 'Grátis' : `R$ ${shipping.toFixed(2).replace('.', ',')}`;
+
+      if (discount > 0) {
+        discountRow.style.display = 'flex';
+        discountEl.innerText = `- R$ ${discount.toFixed(2).replace('.', ',')}`;
+      } else {
+        discountRow.style.display = 'none';
+      }
+
+      totalEl.innerText = `R$ ${total.toFixed(2).replace('.', ',')}`;
+    }
+
+    function processOrder() {
+      const cart = JSON.parse(localStorage.getItem('my_geek_cart')) || [];
+      if (cart.length === 0) {
+        alert("Seu carrinho está vazio! Adicione produtos antes de finalizar.");
+        return;
+      }
+
+      const name = document.getElementById('fullName').value;
+      if (!name) {
+        alert("Por favor, preencha os dados de entrega obrigatórios.");
+        return;
+      }
+
+      alert("🎉 Pedido realizado com sucesso! Obrigado pela compra na Loja Geek.");
+      
+      localStorage.removeItem('my_geek_cart');
+      localStorage.removeItem('my_geek_shipping');
+      localStorage.removeItem('my_geek_coupon');
+      localStorage.removeItem('my_geek_cart_summary');
+      
+      window.location.href = "index.html";
+    }
+
+    loadOrderSummary();
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,298 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+:root {
+  --terracota: #A85032;
+  --off-white: #EFE8DE;
+  --off-white-dark: #E4DCD0;
+  --text-dark: #63321A;
+  --text-muted: #8C6A58;
+  --border-color: #D5CBC0;
+  --green-success: #00A896;
+}
+
+body {
+  background-color: var(--off-white);
+  color: var(--text-dark);
+  min-height: 100vh;
+}
+
+/* HEADER */
+.site-header {
+  background-color: var(--off-white);
+  width: 100%;
+}
+
+.main-header {
+  padding: 15px 0;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.header-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo-text {
+  font-size: 1.8rem;
+  font-weight: 900;
+  color: var(--text-dark);
+  text-decoration: none;
+}
+
+.logo-sub {
+  color: var(--terracota);
+}
+
+.nav-menu {
+  background-color: var(--off-white-dark);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.nav-list {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.nav-list li a {
+  display: block;
+  padding: 10px 15px;
+  color: var(--text-dark);
+  text-decoration: none;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+/* LAYOUT PRINCIPAL */
+.checkout-container {
+  max-width: 1200px;
+  margin: 30px auto;
+  padding: 0 20px;
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 25px;
+}
+
+.checkout-left-col {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.card-box {
+  background: #FFFFFF;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 20px;
+}
+
+.card-title {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: var(--text-dark);
+  margin-bottom: 15px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* FORMULÁRIO DADOS PESSOAIS */
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.form-group.full-width {
+  grid-column: span 2;
+}
+
+.form-group label {
+  font-size: 0.85rem;
+  font-weight: bold;
+  color: var(--text-dark);
+}
+
+.form-group input, 
+.form-group select {
+  padding: 10px;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  outline: none;
+  font-size: 0.9rem;
+}
+
+/* SELEÇÃO DE PAGAMENTO */
+.payment-tabs {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.tab-btn {
+  flex: 1;
+  padding: 12px;
+  border: 1px solid var(--border-color);
+  background: var(--off-white);
+  color: var(--text-dark);
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.2s ease;
+}
+
+.tab-btn.active {
+  background-color: var(--text-dark);
+  color: #FFF;
+  border-color: var(--text-dark);
+}
+
+.payment-method-content {
+  display: none;
+}
+
+.payment-method-content.active {
+  display: block;
+}
+
+/* PIX */
+.pix-box {
+  text-align: center;
+  padding: 20px;
+  border: 2px dashed var(--green-success);
+  border-radius: 8px;
+  background-color: #F4FBF9;
+}
+
+.pix-box p {
+  font-size: 0.9rem;
+  margin-top: 10px;
+  color: var(--text-dark);
+}
+
+/* BOLETO */
+.boleto-box {
+  background-color: #FFF8E7;
+  border: 1px solid #FFEBAA;
+  padding: 15px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  color: #856404;
+}
+
+/* COLUNA DIREITA - RESUMO */
+.checkout-right-col {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.order-item-mini {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #F0EAE1;
+}
+
+.order-item-mini img {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+}
+
+.order-item-details {
+  flex: 1;
+}
+
+.order-item-details h5 {
+  font-size: 0.8rem;
+  color: var(--text-dark);
+}
+
+.order-item-details span {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  font-size: 0.9rem;
+  color: var(--text-dark);
+}
+
+.summary-row.total {
+  font-size: 1.1rem;
+  font-weight: bold;
+  border-top: 1px solid var(--border-color);
+  padding-top: 10px;
+  margin-top: 10px;
+}
+
+.btn-pay {
+  display: block;
+  width: 100%;
+  background-color: var(--green-success);
+  color: #FFF;
+  text-align: center;
+  padding: 14px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1rem;
+  margin-top: 15px;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-back {
+  display: block;
+  width: 100%;
+  background-color: transparent;
+  color: var(--text-dark);
+  text-align: center;
+  padding: 10px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+  border: 1px solid var(--border-color);
+  margin-top: 10px;
+}
+
+/* RESPONSIVIDADE */
+@media (max-width: 850px) {
+  .checkout-container { 
+    grid-template-columns: 1fr; 
+  }
+  .form-grid { 
+    grid-template-columns: 1fr; 
+  }
+  .form-group.full-width { 
+    grid-column: span 1; 
+  }
+}
