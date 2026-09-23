@@ -106,7 +106,7 @@ A parte do Gherkin está na pasta (site-de-vendas-83ebf).
 
 ## 5. Diagrama no Draw.io.
 
-A parte do Diagrama está na pasta (diagrama do projeto.png).
+![Diagrama do Projeto](./diagrama%20do%20projeto.png)
 
 ---
 
