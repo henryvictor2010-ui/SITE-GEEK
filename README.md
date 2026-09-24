@@ -98,11 +98,12 @@
 
 ---
 
-## Cenários em Gherkin
+## 4. Cenários em Gherkin
+
 
 ### Pesquisa e Filtro de Produtos
 
-```gherkin
+
 Funcionalidade: Pesquisa e Filtro de Produtos
   Como cliente da Universal Geek
   Quero filtrar o catálogo por categoria e faixa de preço
@@ -114,13 +115,12 @@ Funcionalidade: Pesquisa e Filtro de Produtos
     E define o filtro de preço máximo para "R$ 500,00"
     Então o sistema deve exibir apenas os produtos da categoria "Cartas Pokémon"
     E todos os itens apresentados devem ter valor igual ou inferior a R$ 500,00
-```
 
----
+
 
 ### Gestão do Carrinho de Compras
 
-```gherkin
+
 Funcionalidade: Gestão do Carrinho de Compras
   Como cliente do e-commerce
   Quero adicionar produtos ao meu carrinho e manter os salvos
@@ -131,13 +131,13 @@ Funcionalidade: Gestão do Carrinho de Compras
     Quando clicado no botão "Adicionar ao Carrinho"
     Então o contador do carrinho no topo da página deve ser atualizado para "1"
     E o produto deve ser mantido no carrinho mesmo se o cliente fechar o navegador
-```
 
----
+
+
 
 ### Validação de Estoque na Confirmação do Pedido
 
-```gherkin
+
 Funcionalidade: Validação de Estoque na Confirmação do Pedido
   Como responsável pelo estoque
   Quero que o sistema impeça a venda de produtos sem disponibilidade física
@@ -149,7 +149,7 @@ Funcionalidade: Validação de Estoque na Confirmação do Pedido
     Quando o cliente tenta avançar para o pagamento
     Então o sistema deve exibir a mensagem "Quantidade solicitada indisponível no estoque"
     E a compra não deve ser solicitada
-```
+
 ---
 
 ## 5. Diagrama no Draw.io.
