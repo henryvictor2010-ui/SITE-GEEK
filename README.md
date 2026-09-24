@@ -98,10 +98,58 @@
 
 ---
 
-## 4. Cenários em Gherkin
+## Cenários em Gherkin
 
-A parte do Gherkin está na pasta (site-de-vendas-83ebf).
+### Pesquisa e Filtro de Produtos
 
+```gherkin
+Funcionalidade: Pesquisa e Filtro de Produtos
+  Como cliente da Universal Geek
+  Quero filtrar o catálogo por categoria e faixa de preço
+  Para encontrar rapidamente os itens que desejo comprar
+
+  Cenário: Aplicar filtro de categoria e preço máximo
+    Dado que o cliente está na página inicial do site
+    Quando seleciona a categoria "Cartas Pokémon"
+    E define o filtro de preço máximo para "R$ 500,00"
+    Então o sistema deve exibir apenas os produtos da categoria "Cartas Pokémon"
+    E todos os itens apresentados devem ter valor igual ou inferior a R$ 500,00
+```
+
+---
+
+### Gestão do Carrinho de Compras
+
+```gherkin
+Funcionalidade: Gestão do Carrinho de Compras
+  Como cliente do e-commerce
+  Quero adicionar produtos ao meu carrinho e manter os salvos
+  Para continuar a navegação sem perder os itens selecionados
+
+  Cenário: Adicionar item ao carrinho com sucesso
+    Dado que o cliente está na página do produto "Funko Pop - Doflamingo"
+    Quando clicado no botão "Adicionar ao Carrinho"
+    Então o contador do carrinho no topo da página deve ser atualizado para "1"
+    E o produto deve ser mantido no carrinho mesmo se o cliente fechar o navegador
+```
+
+---
+
+### Validação de Estoque na Confirmação do Pedido
+
+```gherkin
+Funcionalidade: Validação de Estoque na Confirmação do Pedido
+  Como responsável pelo estoque
+  Quero que o sistema impeça a venda de produtos sem disponibilidade física
+  Para evitar a notificação de pedidos sem estoque
+
+  Cenário: Tentativa de finalização de compra sem estoque suficiente
+    Dado que o produto "Pokéball Crossbody Bag" possui apenas 1 unidade em estoque
+    E o cliente selecionou 2 unidades no seu carrinho
+    Quando o cliente tenta avançar para o pagamento
+    Então o sistema deve exibir a mensagem "Quantidade solicitada indisponível no estoque"
+    E a compra não deve ser solicitada
+```
 ---
 
 ## 5. Diagrama no Draw.io.
