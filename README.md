@@ -154,7 +154,7 @@ Funcionalidade: Validação de Estoque na Confirmação do Pedido
 
 ## 5. Diagrama no Draw.io.
 
-![Diagrama do Projeto](./diagrama%20do%20projeto.png)
+![Diagrama do Projeto](Imagens/diagrama%20do%20projeto.png)
 
 ---
 
