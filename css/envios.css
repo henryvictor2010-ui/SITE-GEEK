@@ -1,18 +1,187 @@
- body {
-            background-color: #F5EFE6;
-            color: #4A3B32;
-        }
-        /* Custom scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #F5EFE6;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #C4B099;
-            border-radius: 4px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #934B26;
-        }
+/* ==========================================================================
+   1. RESET GLOBAL & ESTRUTURA BASE
+   ========================================================================== */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, 
+body {
+    width: 100%;
+    min-height: 100vh;
+    overflow-x: hidden;
+    background-color: #F8F5F0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    color: #4A2E1B;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* ==========================================================================
+   2. CUSTOM SCROLLBAR (BARRA DE ROLAGEM)
+   ========================================================================== */
+::-webkit-scrollbar {
+    width: 15px;
+}
+
+::-webkit-scrollbar-track {
+    background: #F5EFE6;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #C4B099;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #934B26;
+}
+
+/* ==========================================================================
+   3. CABEÇALHO E NAVEGAÇÃO (UNIVERSAL GEEK)
+   ========================================================================== */
+/* Barra de topo de anúncios */
+.top-bar {
+    width: 100%;
+    background-color: #A6532B;
+    color: #FFFFFF;
+    text-align: center;
+    padding: 8px 16px;
+    font-size: 0.875rem;
+    font-weight: 600;
+}
+
+/* Container do Header Principal */
+.main-header {
+    width: 100%;
+    background-color: #F4EEE5;
+    border-bottom: 1px solid #E5DCCB;
+}
+
+.header-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Título / Logo Central */
+.brand-title {
+    font-family: Georgia, serif;
+    font-size: 1.875rem;
+    font-weight: 700;
+    color: #4A2E1B;
+    letter-spacing: 0.05em;
+    text-align: center;
+}
+
+/* Navegação Principal */
+.main-nav {
+    background-color: #E8DECB;
+    border-top: 1px solid #D6C8B0;
+    border-bottom: 1px solid #D6C8B0;
+    padding: 10px 0;
+}
+
+.nav-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.nav-link {
+    color: #4A2E1B;
+    font-weight: 700;
+    font-size: 0.875rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: opacity 0.2s ease;
+}
+
+.nav-link:hover {
+    opacity: 0.75;
+}
+
+/* ==========================================================================
+   4. CARDS DE PRODUTOS & GALERIA
+   ========================================================================== */
+.product-card {
+    background: #FFFFFF;
+    border: 1px solid #E5DCCB;
+    border-radius: 8px;
+    padding: 16px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.product-gallery {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.product-image {
+    width: 100%;
+    height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.gallery-img {
+    display: none;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.gallery-img.active {
+    display: block;
+}
+
+.gallery-prev,
+.gallery-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.8);
+    border: 1px solid #E5DCCB;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+}
+
+.gallery-prev { left: 4px; }
+.gallery-next { right: 4px; }
+
+.btn-add-cart {
+    background-color: #934B26;
+    color: #FFFFFF;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.btn-add-cart:hover {
+    background-color: #72381B;
+}

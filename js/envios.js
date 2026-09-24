@@ -1,359 +1,255 @@
- 
-        function orderTracker() {
-            return {
-                searchQuery: '',
-                copied: false,
-                showSupportModal: false,
+function orderTracker() {
+    return {
+        searchQuery: '',
+        copied: false,
+        showSupportModal: false,
+        currentOrder: null,
 
-                // Standard shipping steps
-                steps: [
-                    { label: 'Pedido Realizado' },
-                    { label: 'Pagamento Confirmado' },
-                    { label: 'Em Preparação' },
-                    { label: 'Enviado' },
-                    { label: 'Em Rota' },
-                    { label: 'Entregue' }
+        steps: [
+            { label: 'Pedido Realizado' },
+            { label: 'Pagamento Confirmado' },
+            { label: 'Em Separação' },
+            { label: 'Enviado / Trânsito' },
+            { label: 'Entregue' }
+        ],
+
+        orders: {
+            'ANDRENETO': {
+                id: '#UG-77412',
+                statusKey: 'IN_TRANSIT',
+                statusLabel: 'Em Trânsito',
+                date: '22/09/2026',
+                paymentMethod: 'PIX',
+                trackingCode: 'BR987654321BR',
+                estimatedDelivery: '28 de Setembro de 2026',
+                stepIndex: 3,
+                subtotal: 599.89,
+                discount: 29.99,
+                total: 569.90,
+                items: [
+                    {
+                        id: 1,
+                        name: 'Funko Pop - Tony Tony Chopper - One Piece - #2148',
+                        tag: 'One Piece',
+                        quantity: 1,
+                        price: 139.99,
+                        image: 'https://funko.com/on/demandware.static/-/Sites-funko-master-catalog/default/dw596e7560/images/funko/upload/1/86517_OP_S12_Chopper_POP_GLAM-1-WEB.png'
+                    },
+                    {
+                        id: 3,
+                        name: 'Carta Pokémon - Mega Charizard X e Y Ex - Fogo Fantasmagórico - 125/094',
+                        tag: 'Pokémon',
+                        quantity: 1,
+                        price: 459.90,
+                        image: 'https://www.pokemon.com/static-assets/content-assets/cms2/img/cards/web/ME2PT5/ME2PT5_EN_22.png'
+                    }
                 ],
+                history: [
+                    { date: '24/09/2026 10:15', title: 'Em trânsito para a unidade local', description: 'Carga encaminhada para a transportadora regional.', location: 'Belém / PA' },
+                    { date: '23/09/2026 16:40', title: 'Objeto postado', description: 'Pedido recebido na unidade de tratamento.', location: 'São Paulo / SP' },
+                    { date: '22/09/2026 11:00', title: 'Pagamento aprovado', description: 'Transação PIX confirmada com sucesso.', location: 'Sistema' }
+                ]
+            },
 
-                orders: {
-                    'ANDRENETO': {
-                        id: '#UG-77700',
-                        statusKey: 'SHIPPED',
-                        statusLabel: 'Enviado em Trânsito',
-                        date: '21/09/2026 às 08:30',
-                        paymentMethod: 'Pix com 5% de Desconto',
-                        trackingCode: 'ANDRENETO',
-                        estimatedDelivery: '24/09/2026',
-                        stepIndex: 3, // Enviado
-                        subtotal: 139.99,
-                        discount: 7.00,
-                        total: 132.99,
-                        items: [
-                            {
-                                id: 1,
-                                name: 'Funko Pop - Tony Tony Chopper - One Piece - #2148',
-                                price: 139.99,
-                                quantity: 1,
-                                tag: 'Últimas Unidades',
-                                image: 'https://placehold.co/200x200/F5EFE6/934B26?text=Chopper+Funko'
-                            }
-                        ],
-                        history: [
-                            {
-                                date: '21/09/2026 - 15:20',
-                                title: 'Objeto em Trânsito',
-                                description: 'A encomenda está a caminho do centro de distribuição local para entrega final.',
-                                location: 'Centro Logístico - São Paulo/SP'
-                            },
-                            {
-                                date: '21/09/2026 - 11:00',
-                                title: 'Coletado pela Transportadora',
-                                description: 'O pacote foi despachado sob o código de rastreio prioritário ANDRENETO.',
-                                location: 'CD Universal Geek - São Paulo/SP'
-                            },
-                            {
-                                date: '21/09/2026 - 09:00',
-                                title: 'Pedido Embalado e Nota Fiscal Emitida',
-                                description: 'Colecionável embalado com proteção reforçada de plástico bolha.',
-                                location: 'Estoque Universal Geek'
-                            },
-                            {
-                                date: '21/09/2026 - 08:30',
-                                title: 'Pagamento Aprovado via Pix',
-                                description: 'Desconto exclusivo de 5% aplicado.',
-                                location: 'Sistema Automático'
-                            }
-                        ]
+            '#UG-88421': {
+                id: '#UG-88421',
+                statusKey: 'PROCESSING',
+                statusLabel: 'Em Processamento',
+                date: '24/09/2026',
+                paymentMethod: 'PIX',
+                trackingCode: '',
+                estimatedDelivery: '02 de Outubro de 2026',
+                stepIndex: 1,
+                subtotal: 119.99,
+                discount: 6.00,
+                total: 113.99,
+                items: [
+                    {
+                        id: 2,
+                        name: 'Funko Pop - Doflamingo - One Piece - #2237',
+                        tag: 'One Piece',
+                        quantity: 1,
+                        price: 119.99,
+                        image: 'https://cdn.hmv.com/r/w-1280/p-webp/hmv/files/9d/9d270d7e-634b-4ece-914f-88cc3495752f.png'
+                    }
+                ],
+                history: [
+                    { date: '24/09/2026 09:20', title: 'Pagamento Confirmado', description: 'Aguardando separação no estoque.', location: 'Centro de Distribuição' },
+                    { date: '24/09/2026 09:18', title: 'Pedido Recebido', description: 'Aguardando validação do pagamento.', location: 'Sistema' }
+                ]
+            },
+
+            '#UG-99201': {
+                id: '#UG-99201',
+                statusKey: 'IN_TRANSIT',
+                statusLabel: 'Em Trânsito',
+                date: '20/09/2026',
+                paymentMethod: 'Cartão de Crédito',
+                trackingCode: 'BR456123789BR',
+                estimatedDelivery: '26 de Setembro de 2026',
+                stepIndex: 3,
+                subtotal: 348.68,
+                discount: 0.00,
+                total: 348.68,
+                items: [
+                    {
+                        id: 5,
+                        name: "Two Freddy Figure's - Five Nights At Freddy's - YouTooz",
+                        tag: 'Freddy',
+                        quantity: 1,
+                        price: 348.68,
+                        image: 'https://animeemporium.co.uk/cdn/shop/files/youtooz-five-nights-at-freddy-s-freddy-vinyl-figure-2-the-card-vault-2_1024x_3c9517fd-68fd-4024-8a88-4e3255066e75.png?v=1687189716&width=1946'
+                    }
+                ],
+                history: [
+                    { date: '23/09/2026 15:10', title: 'Saiu para entrega', description: 'Objeto saiu para o endereço do destinatário.', location: 'Belém / PA' },
+                    { date: '21/09/2026 08:30', title: 'Objeto em trânsito', description: 'Em transferência entre unidades.', location: 'Campinas / SP' }
+                ]
+            },
+
+            '#UG-55310': {
+                id: '#UG-55310',
+                statusKey: 'DELIVERED',
+                statusLabel: 'Entregue',
+                date: '15/09/2026',
+                paymentMethod: 'PIX',
+                trackingCode: 'BR112233445BR',
+                estimatedDelivery: 'Entregue em 18/09/2026',
+                stepIndex: 4,
+                subtotal: 332.48,
+                discount: 16.62,
+                total: 315.86,
+                items: [
+                    {
+                        id: 7,
+                        name: 'Digital Circus - Jax Pelúcia - Glitch Oficial',
+                        tag: 'Digital Circus',
+                        quantity: 1,
+                        price: 89.60,
+                        image: 'https://glitchproductions.store/cdn/shop/files/jax-plush-1.png?v=1762231391&width=1200'
                     },
+                    {
+                        id: 8,
+                        name: 'Pokéball Crossbody Bag - Loungefly - Pokémon Oficial',
+                        tag: 'Pokémon',
+                        quantity: 1,
+                        price: 242.88,
+                        image: 'https://loungefly.com/on/demandware.static/-/Sites-funko-master-catalog/default/dwb2b6bc0e/images/loungefly/upload/PMTB0163-LFPOKEMONPOKEBALLCROSSBODY0018.png'
+                    }
+                ],
+                history: [
+                    { date: '18/09/2026 16:45', title: 'Entregue', description: 'Entregue ao destinatário ou pessoa autorizada.', location: 'Belém / PA' }
+                ]
+            },
 
-                    '#UG-88421': {
-                        id: '#UG-88421',
-                        statusKey: 'PROCESSING',
-                        statusLabel: 'Em Processamento',
-                        date: '20/09/2026 às 14:32',
-                        paymentMethod: 'Pix com 5% de Desconto',
-                        trackingCode: 'BR884210922UG',
-                        estimatedDelivery: '25/09/2026 a 28/09/2026',
-                        stepIndex: 2, // Em Preparação
-                        subtotal: 139.99,
-                        discount: 7.00,
-                        total: 132.99,
-                        items: [
-                            {
-                                id: 1,
-                                name: 'Funko Pop - Tony Tony Chopper - One Piece - #2148',
-                                price: 139.99,
-                                quantity: 1,
-                                tag: 'Últimas Unidades',
-                                image: 'https://placehold.co/200x200/F5EFE6/934B26?text=Chopper+Funko'
-                            }
-                        ],
-                        history: [
-                            {
-                                date: '21/09/2026 - 09:15',
-                                title: 'Em Separação no Estoque',
-                                description: 'O item foi reservado e está sendo embalado com proteção reforçada para envio.',
-                                location: 'Centro de Distribuição - São Paulo/SP'
-                            },
-                            {
-                                date: '20/09/2026 - 14:35',
-                                title: 'Pagamento via Pix Confirmado',
-                                description: 'O pagamento foi aprovado instantaneamente. Desconto de 5% aplicado com sucesso.',
-                                location: 'Sistema Automático'
-                            },
-                            {
-                                date: '20/09/2026 - 14:32',
-                                title: 'Pedido Recebido',
-                                description: 'Aguardando aprovação do pagamento.',
-                                location: 'Loja Online Universal Geek'
-                            }
-                        ]
+            '#UG-10022': {
+                id: '#UG-10022',
+                statusKey: 'CANCELLED',
+                statusLabel: 'Cancelado',
+                date: '10/09/2026',
+                paymentMethod: 'Boleto Bancário',
+                trackingCode: '',
+                estimatedDelivery: 'N/A',
+                stepIndex: 0,
+                cancelReason: 'O pedido foi cancelado automaticamente por falta de pagamento do boleto bancário dentro do prazo de vencimento.',
+                subtotal: 319.79,
+                discount: 0.00,
+                total: 319.79,
+                items: [
+                    {
+                        id: 4,
+                        name: 'Funko Pop - Aeroplane Ms. Chalice - Cuphead - #899',
+                        tag: 'Cuphead',
+                        quantity: 1,
+                        price: 169.90,
+                        image: 'https://funko.com/dw/image/v2/BGTS_PRD/on/demandware.static/-/Sites-funko-master-catalog/default/dw29537dfc/images/funko/61417-2.png?sw=800&sh=800'
                     },
-
-                    '#UG-99201': {
-                        id: '#UG-99201',
-                        statusKey: 'SHIPPED',
-                        statusLabel: 'Em Trânsito',
-                        date: '18/09/2026 às 10:10',
-                        paymentMethod: 'Pix com 5% de Desconto',
-                        trackingCode: 'BR992015822UG',
-                        estimatedDelivery: '22/09/2026',
-                        stepIndex: 4, // Em Rota
-                        subtotal: 459.90,
-                        discount: 22.99,
-                        total: 436.91,
-                        items: [
-                            {
-                                id: 2,
-                                name: 'Carta Pokémon - Mega Charizard X e Y Ex - Fogo Fantasmagórico',
-                                price: 459.90,
-                                quantity: 1,
-                                tag: 'Oferta Única',
-                                image: 'https://placehold.co/200x200/F5EFE6/934B26?text=Charizard+Ex'
-                            }
-                        ],
-                        history: [
-                            {
-                                date: '21/09/2026 - 07:40',
-                                title: 'Saiu para entrega ao destinatário',
-                                description: 'O entregador já está com sua encomenda a caminho da residência.',
-                                location: 'Unidade de Entrega - Belém/PA'
-                            },
-                            {
-                                date: '20/09/2026 - 18:20',
-                                title: 'Em trânsito para a unidade local',
-                                description: 'Objeto encaminhado para o centro logístico regional.',
-                                location: 'Centro Logístico - Curitiba/PR'
-                            },
-                            {
-                                date: '19/09/2026 - 11:00',
-                                title: 'Objeto postado e encaminhado',
-                                description: 'Coleta realizada pela transportadora parceira.',
-                                location: 'São Paulo/SP'
-                            },
-                            {
-                                date: '18/09/2026 - 10:10',
-                                title: 'Pedido Confirmado e Faturado',
-                                description: 'Nota fiscal emitida com sucesso.',
-                                location: 'Universal Geek'
-                            }
-                        ]
-                    },
-
-                    '#UG-55310': {
-                        id: '#UG-55310',
-                        statusKey: 'DELIVERED',
-                        statusLabel: 'Entregue',
-                        date: '12/09/2026 às 16:45',
-                        paymentMethod: 'Cartão de Crédito',
-                        trackingCode: 'BR553109911UG',
-                        estimatedDelivery: '15/09/2026 (Entregue no prazo)',
-                        stepIndex: 5, // Entregue
-                        subtotal: 289.89,
-                        discount: 0.00,
-                        total: 289.89,
-                        items: [
-                            {
-                                id: 3,
-                                name: 'Funko Pop - Doflamingo - One Piece - #2237',
-                                price: 119.99,
-                                quantity: 1,
-                                tag: 'Em estoque',
-                                image: 'https://placehold.co/200x200/F5EFE6/934B26?text=Doflamingo'
-                            },
-                            {
-                                id: 4,
-                                name: 'Funko Pop - Aeroplane Ms. Chalice - Cuphead - #899',
-                                price: 169.90,
-                                quantity: 1,
-                                tag: 'Mais Vendidos',
-                                image: 'https://placehold.co/200x200/F5EFE6/934B26?text=Ms+Chalice'
-                            }
-                        ],
-                        history: [
-                            {
-                                date: '15/09/2026 - 14:10',
-                                title: 'Entregue ao Destinatário',
-                                description: 'Recebido por: Carlos Silva (Portaria/Recebedor).',
-                                location: 'Belém/PA'
-                            },
-                            {
-                                date: '15/09/2026 - 08:30',
-                                title: 'Saiu para entrega ao destinatário',
-                                description: 'Motorista em rota.',
-                                location: 'Unidade de Entrega - Belém/PA'
-                            },
-                            {
-                                date: '13/09/2026 - 10:00',
-                                title: 'Objeto Postado',
-                                description: 'Encaminhado para a transportadora.',
-                                location: 'São Paulo/SP'
-                            }
-                        ]
-                    },
-
-                    '#UG-10022': {
-                        id: '#UG-10022',
-                        statusKey: 'CANCELLED',
-                        statusLabel: 'Cancelado',
-                        date: '05/09/2026 às 11:20',
-                        paymentMethod: 'Pix',
-                        trackingCode: null,
-                        estimatedDelivery: 'Cancelado',
-                        stepIndex: 0,
-                        cancelReason: 'O pedido foi cancelado devido a uma solicitação do cliente antes do envio. O reembolso via PIX foi realizado com sucesso.',
-                        subtotal: 139.99,
-                        discount: 7.00,
-                        total: 132.99,
-                        items: [
-                            {
-                                id: 1,
-                                name: 'Funko Pop - Tony Tony Chopper - One Piece - #2148',
-                                price: 139.99,
-                                quantity: 1,
-                                tag: 'Últimas Unidades',
-                                image: 'https://placehold.co/200x200/F5EFE6/934B26?text=Chopper+Funko'
-                            }
-                        ],
-                        history: [
-                            {
-                                date: '05/09/2026 - 12:00',
-                                title: 'Estorno do Pagamento Concluído',
-                                description: 'Valor de R$ 132,99 devolvido para a chave PIX de origem.',
-                                location: 'Sistema Financeiro'
-                            },
-                            {
-                                date: '05/09/2026 - 11:45',
-                                title: 'Solicitação de Cancelamento Aprovada',
-                                description: 'O cancelamento foi processado a pedido do cliente.',
-                                location: 'Atendimento ao Cliente'
-                            }
-                        ]
+                    {
+                        id: 6,
+                        name: "Yellow Rabbit Movie Figure - Five Nights At Freddy's - YouTooz",
+                        tag: 'Movie',
+                        quantity: 1,
+                        price: 149.89,
+                        image: 'https://pna247.co.uk/cdn/shop/files/01_13.png?v=1718197240'
                     }
-                },
+                ],
+                history: [
+                    { date: '12/09/2026 00:00', title: 'Pedido Cancelado', description: 'Prazo de pagamento expirado.', location: 'Sistema' }
+                ]
+            }
+        },
 
-                currentOrder: null,
+        init() {
+            this.loadOrder('ANDRENETO');
+        },
 
-                init() {
-                    // Default view set to ANDRENETO order
-                    this.loadOrder('ANDRENETO');
-                },
+        loadOrder(code) {
+            const foundKey = Object.keys(this.orders).find(
+                key => key.toUpperCase() === code.toUpperCase() || 
+                       this.orders[key].trackingCode.toUpperCase() === code.toUpperCase()
+            );
 
-                loadOrder(orderId) {
-                    const found = this.orders[orderId];
-                    if (found) {
-                        this.currentOrder = found;
-                        this.searchQuery = orderId;
-                    } else {
-                        this.currentOrder = null;
-                    }
-                },
+            if (foundKey) {
+                this.currentOrder = this.orders[foundKey];
+                this.searchQuery = code;
+            } else {
+                this.currentOrder = null;
+            }
+        },
 
-                searchOrder() {
-                    const cleanQuery = this.searchQuery.trim().toUpperCase();
-                    if (!cleanQuery) return;
+        searchOrder() {
+            if (!this.searchQuery.trim()) return;
+            this.loadOrder(this.searchQuery.trim());
+        },
 
-                    // Direct match by ID or Tracking Code
-                    if (this.orders[cleanQuery]) {
-                        this.currentOrder = this.orders[cleanQuery];
-                        return;
-                    }
+        copyTrackingCode(code) {
+            if (!code) return;
+            navigator.clipboard.writeText(code);
+            this.copied = true;
+            setTimeout(() => { this.copied = false; }, 2000);
+        },
 
-                    // Search by Tracking Code matching
-                    const matchByCode = Object.values(this.orders).find(o => o.trackingCode && o.trackingCode.toUpperCase() === cleanQuery);
-                    if (matchByCode) {
-                        this.currentOrder = matchByCode;
-                        return;
-                    }
+        getProgressPercentage() {
+            if (!this.currentOrder) return 0;
+            return (this.currentOrder.stepIndex / (this.steps.length - 1)) * 100;
+        },
 
-                    // Try prefix match with #
-                    const withHash = cleanQuery.startsWith('#') ? cleanQuery : '#' + cleanQuery;
-                    if (this.orders[withHash]) {
-                        this.currentOrder = this.orders[withHash];
-                        return;
-                    }
-
-                    // Not found
-                    this.currentOrder = null;
-                },
-
-                getProgressPercentage() {
-                    if (!this.currentOrder || this.currentOrder.statusKey === 'CANCELLED') return 0;
-                    const maxSteps = this.steps.length - 1;
-                    return Math.min((this.currentOrder.stepIndex / maxSteps) * 100, 100);
-                },
-
-                getStatusBadgeClass(statusKey) {
-                    switch (statusKey) {
-                        case 'DELIVERED':
-                            return 'bg-emerald-100 text-emerald-800 border border-emerald-300';
-                        case 'SHIPPED':
-                            return 'bg-blue-100 text-blue-800 border border-blue-300';
-                        case 'PROCESSING':
-                            return 'bg-amber-100 text-amber-900 border border-amber-300';
-                        case 'CANCELLED':
-                            return 'bg-rose-100 text-rose-800 border border-rose-300';
-                        default:
-                            return 'bg-gray-100 text-gray-800 border border-gray-300';
-                    }
-                },
-
-                copyTrackingCode(code) {
-                    if (!code) return;
-                    // Standard fallback copying method compatible with embedded previews
-                    const el = document.createElement('textarea');
-                    el.value = code;
-                    document.body.appendChild(el);
-                    el.select();
-                    document.execCommand('copy');
-                    document.body.removeChild(el);
-
-                    this.copied = true;
-                    setTimeout(() => {
-                        this.copied = false;
-                    }, 2000);
-                }
+        getStatusBadgeClass(key) {
+            switch (key) {
+                case 'IN_TRANSIT':
+                    return 'bg-blue-100 text-blue-800 border border-blue-200';
+                case 'PROCESSING':
+                    return 'bg-amber-100 text-amber-800 border border-amber-200';
+                case 'DELIVERED':
+                    return 'bg-emerald-100 text-emerald-800 border border-emerald-200';
+                case 'CANCELLED':
+                    return 'bg-rose-100 text-rose-800 border border-rose-200';
+                default:
+                    return 'bg-gray-100 text-gray-800 border border-gray-200';
             }
         }
-     tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        geek: {
-                            bg: '#F5EFE6',         /* Warm cream background from screenshot */
-                            card: '#FFFFFF',       /* Card background */
-                            navBg: '#E8DEC9',      /* Nav category background */
-                            primary: '#934B26',    /* Warm brown button/accent */
-                            primaryHover: '#793B1C',
-                            darkBrown: '#5A2E16',
-                            bar: '#A8572A',       /* Announcement top bar */
-                            badge: '#B25A2B',      /* Card tag badges */
-                            border: '#E3D3C1'
-                        }
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif']
-                    }
-                }
-            }
-        }
+    };
+}
+
+ tailwind.config = {
+           theme: {
+               extend: {
+                   colors: {
+                       geek: {
+                           bg: '#F5EFE6',         /* Warm cream background from screenshot */
+                           card: '#FFFFFF',       /* Card background */
+                           navBg: '#E8DEC9',      /* Nav category background */
+                           primary: '#934B26',    /* Warm brown button/accent */
+                           primaryHover: '#793B1C',
+                           darkBrown: '#5A2E16',
+                           bar: '#A8572A',       /* Announcement top bar */
+                           badge: '#B25A2B',      /* Card tag badges */
+                           border: '#E3D3C1'
+                       }
+                   },
+                   fontFamily: {
+                       sans: ['Inter', 'sans-serif']
+                   }
+               }
+           }
+       }

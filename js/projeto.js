@@ -385,7 +385,28 @@ window.addEventListener('click', (event) => {
 });
 
 
-
+  tailwind.config = {
+           theme: {
+               extend: {
+                   colors: {
+                       geek: {
+                           bg: '#F5EFE6',         /* Warm cream background from screenshot */
+                           card: '#FFFFFF',       /* Card background */
+                           navBg: '#E8DEC9',      /* Nav category background */
+                           primary: '#934B26',    /* Warm brown button/accent */
+                           primaryHover: '#793B1C',
+                           darkBrown: '#5A2E16',
+                           bar: '#A8572A',       /* Announcement top bar */
+                           badge: '#B25A2B',      /* Card tag badges */
+                           border: '#E3D3C1'
+                       }
+                   },
+                   fontFamily: {
+                       sans: ['Inter', 'sans-serif']
+                   }
+               }
+           }
+       }
 
 
 
