@@ -110,6 +110,8 @@
           </div>
 
 
+
+
  <!-------- PARTE DO CADASTRO----- -->
           <a href="CADASTRO.HTML">Entrar / Cadastrar</a>
          
@@ -147,24 +149,41 @@
 
 
 
+<nav class="nav-menu">
+    <ul class="nav-list">
+      <li><a href="action-figures.html">ESTÁTUAS E ACTION FIGURES</a></li>
+      <li><a href="cartas-pokemon.html">CARTAS POKÉMON</a></li>
+      <li><a href="envios.html">SITUAÇÃO DA ENCOMENDA</a></li>
+    </ul>
+  </nav>
+</header>
 
+<!-- ==================== BARRA DE FILTROS ALINHADA AO TEMA ==================== -->
+<section class="filters-bar">
+  <div class="filters-wrapper">
+    
+    <div class="filter-item">
+      <label for="filterCategory">Categoria / Franquia:</label>
+      <select id="filterCategory" class="geek-select">
+        <option value="all">Todas as Categorias</option>
+        <option value="One Piece">One Piece</option>
+        <option value="Pokémon">Pokémon</option>
+        <option value="Five Nights At Freddy's">Five Nights At Freddy's</option>
+        <option value="Glitch">Universo Glitch (Digital Circus / Murder Drones / Gameoverse)</option>
+        <option value="Attack on Titan">Attack on Titan</option>
+        <option value="Cuphead">Cuphead</option>
+      </select>
+    </div>
 
+    <div class="filter-item filter-range-box">
+      <label for="filterPrice">Preço Máximo: <strong>R$ <span id="priceValue">500,00</span></strong></label>
+      <input type="range" id="filterPrice" class="geek-range" min="40" max="500" step="10" value="500">
+    </div>
 
+    <button id="btnClearFilters" class="btn-clear-geek">Limpar Filtros</button>
 
-
-
-    <nav class="nav-menu">
-      <ul class="nav-list">
-        <li><a href="action-figures.html">ESTÁTUAS E ACTION FIGURES</a></li>
-        <li><a href="cartas-pokemon.html">CARTAS POKÉMON</a></li>
-        <li><a href="envios.html">SITUAÇÃO DA ENCOMENDA</a></li>
-      </ul>
-    </nav>
-  </header>
-
-
-
-
+  </div>
+</section>
 
 
 <!-- ====================================== 2° PARTE ====================================== -->

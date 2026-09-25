@@ -1016,3 +1016,82 @@ body {
   }
 }
 
+
+
+
+
+
+/* ==================== BARRA DE FILTROS GEEK ==================== */
+.filters-bar {
+  background-color: #f2ebd9; /* Tom bege sutil em sintonia com o fundo */
+  border-bottom: 2px solid #b85d38; /* Linha de destaque na cor terrosa */
+  padding: 12px 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.filters-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.filter-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #4a2810; /* Texto marrom escuro do tema */
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.geek-select {
+  padding: 8px 12px;
+  border: 1px solid #b85d38;
+  border-radius: 6px;
+  background-color: #ffffff;
+  color: #333333;
+  font-weight: 500;
+  outline: none;
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+
+.geek-select:focus {
+  border-color: #8c3f1d;
+}
+
+.filter-range-box {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Customização do slider para a cor do tema */
+.geek-range {
+  accent-color: #b85d38; /* Cor alaranjada/terrosa igual ao topo */
+  cursor: pointer;
+  width: 160px;
+}
+
+.btn-clear-geek {
+  background-color: #b85d38;
+  color: #ffffff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.btn-clear-geek:hover {
+  background-color: #8c3f1d;
+}
+
+.btn-clear-geek:active {
+  transform: scale(0.98);
+}
