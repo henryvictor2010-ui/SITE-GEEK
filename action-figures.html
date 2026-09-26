@@ -1,168 +1,783 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Action Figures - Universal Geek</title>
-  <link rel="stylesheet" href="css/projeto.css"></head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Action Figures - Universal Geek</title>
+ <link rel="stylesheet" href="css/projeto.css">
+</head>
 <body>
 
-  <!-- HEADER PRINCIPAL -->
-  <header class="site-header">
-    <div class="top-bar">
-      <span>FRETE GRÁTIS PARA TODO O BRASIL EM COMPRAS ACIMA DE R$ 199</span>
-    </div>
-    
-    <div class="main-header">
-      <div class="header-container">
-        <div class="search-box">
-          <input type="text" placeholder="Buscar estátuas, colecionáveis...">
-          <button type="submit">🔍</button>
-        </div>
 
-        <div class="logo">
-          <span class="logo-text">UNIVERSAL <span class="logo-sub">GEEK</span></span>
-        </div>
 
-        <div class="user-menu">
-          <a href="#" class="cart-btn" id="open-cart-btn">
-            <span>🛒 Carrinho</span>
-            <span class="cart-count" id="cart-count">0</span>
-          </a>
-        </div>
-      </div>
-    </div>
 
-    <!-- MENU DE NAVEGAÇÃO -->
-    <nav class="nav-menu">
-      <ul class="nav-list">
-        <li><a href="index.html">INÍCIO</a></li>
-        <li><a href="cartas-pokemon.html">CARTAS POKÉMON</a></li>
-        <li><a href="action-figures.html" style="color: var(--terracota);">ACTION FIGURES</a></li>
-    
-      </ul>
-    </nav>
-  </header>
 
-  <!-- CONTEÚDO PRINCIPAL: ACTION FIGURES -->
-  <main class="main-content">
-    <h1 class="section-title">Action Figures e Estátuas Colecionáveis</h1>
 
-    <div class="products-grid">
 
-      <!-- PRODUTO 1: COM VARIAÇÕES (TAMANHO/VERSÃO) -->
-      <div class="product-card" 
-           data-id="af-01" 
-           data-name="Figure Satoru Gojo - Jujutsu Kaisen" 
-           data-price="349.90" 
-           data-seller="Universal Geek" 
-           data-description="Figura detalhada em PVC do personagem Satoru Gojo realizando a Expansão de Domínio. Acompanha base expositora e cabeça intercambiável."
-           data-image="https://via.placeholder.com/200x160?text=Gojo+Figure"
-           data-has-variations="true"
-           data-variations='[
-             {"name": "Versão Padrão (20cm)", "price": 349.90},
-             {"name": "Versão Deluxe com LED (25cm)", "price": 499.90}
-           ]'>
-        <span class="product-badge">Mais Vendido</span>
-        <div class="product-gallery">
-          <button class="gallery-prev">‹</button>
-          <div class="product-image">
-            <img src="https://via.placeholder.com/200x160?text=Gojo+Padr%C3%A3o" class="gallery-img active" alt="Gojo Padrão">
-            <img src="https://via.placeholder.com/200x160?text=Gojo+LED" class="gallery-img" alt="Gojo LED">
-          </div>
-          <button class="gallery-next">›</button>
-        </div>
-        <h3 class="product-title">Figure Satoru Gojo - Jujutsu Kaisen</h3>
-        <p class="product-price">A partir de R$ 349,90</p>
-        <button class="btn-add-cart">Adicionar ao Carrinho</button>
-      </div>
 
-      <!-- PRODUTO 2: MERUEM HUNTER X HUNTER -->
-      <div class="product-card" 
-           data-id="af-02" 
-           data-name="Estátua Rei Meruem - Hunter x Hunter" 
-           data-price="520.00" 
-           data-seller="Universal Geek" 
-           data-description="Estátua em resina do Rei Ant Meruem em pose de trono. Acabamento feito à mão com pintura de altíssima precisão."
-           data-image="https://via.placeholder.com/200x160?text=Meruem+Figure">
-        <div class="product-gallery">
-          <button class="gallery-prev">‹</button>
-          <div class="product-image">
-            <img src="https://via.placeholder.com/200x160?text=Meruem+Angle+1" class="gallery-img active" alt="Meruem 1">
-            <img src="https://via.placeholder.com/200x160?text=Meruem+Angle+2" class="gallery-img" alt="Meruem 2">
-          </div>
-          <button class="gallery-next">›</button>
-        </div>
-        <h3 class="product-title">Estátua Rei Meruem - Hunter x Hunter</h3>
-        <p class="product-price">R$ 520,00</p>
-        <button class="btn-add-cart">Adicionar ao Carrinho</button>
-      </div>
+<!-- ====================================== INÍCIO DA PÁGINA ====================================== -->
 
-    </div>
-  </main>
 
-  <!-- MODAL DE VARIAÇÃO -->
-  <div class="variation-modal-overlay" id="variation-modal">
-    <div class="variation-modal-card">
-      <button class="variation-modal-close" id="close-variation-modal">&times;</button>
-      <div class="variation-modal-header">
-        <img id="var-modal-img" src="" class="variation-modal-img" alt="Preview">
-        <div class="variation-modal-info">
-          <h4 id="var-modal-title" class="variation-modal-title"></h4>
-          <span id="var-modal-price" class="variation-modal-price"></span>
-        </div>
-      </div>
-      <div class="variation-modal-body">
-        <span class="variation-modal-label">Selecione uma opção:</span>
-        <div id="var-modal-options" class="variation-modal-options"></div>
-      </div>
-      <button class="btn-confirm-variation" id="confirm-variation-btn">Confirmar Escolha</button>
-    </div>
-  </div>
 
-  <!-- MODAIS E RODAPÉ (REUTILIZADOS) -->
-  <div id="product-modal" class="modal">
-    <div class="modal-content">
-      <span class="close-btn" id="close-modal-btn">&times;</span>
-      <div class="modal-body">
-        <div class="modal-image-container">
-          <img id="modal-image" src="" alt="Produto">
-        </div>
-        <div class="modal-info">
-          <h2 id="modal-title"></h2>
-          <p id="modal-seller"></p>
-          <p id="modal-description"></p>
-          <p id="modal-price" class="product-price"></p>
-          <button class="btn-add-cart" id="modal-add-cart-btn">Adicionar ao Carrinho</button>
-        </div>
-      </div>
-    </div>
-  </div>
 
-  <div class="cart-overlay" id="cart-overlay">
-    <div class="cart-modal">
-      <div class="modal-header">
-        <h2>Seu Carrinho</h2>
-        <button class="close-modal" id="close-cart-btn">&times;</button>
-      </div>
-      <div class="cart-items-list" id="cart-items-container"></div>
-      <div class="promo-banner">COMPRAS ACIMA DE R$ 199 TÊM FRETE GRÁTIS!</div>
-      <div class="cart-summary">
-        <p>Subtotal: <span class="subtotal-value" id="cart-subtotal">R$ 0,00</span></p>
-      </div>
-      <div class="cart-actions">
-        <button class="btn-continue" id="continue-shopping">Continuar Comprando</button>
-        <a href="#" class="btn-checkout">Finalizar Compra</a>
-      </div>
-    </div>
-  </div>
+ <!-- == Mensagem de Desconto == -->
+ <header class="site-header">
+   <div class="top-bar">
+     <p>Frete grátis de Figures para todo o Brasil em compras acima de R$ 199.00</p>
+   </div>
 
-  <footer class="main-footer">
-    <div class="footer-bottom">
-      <p>&copy; 2026 Universal Geek. Todos os direitos reservados.</p>
-    </div>
-  </footer>
 
-  <script src="js/projeto.js"></script>
+
+
+
+
+
+
+   <div class="main-header">
+     <div class="header-container">
+     
+       <!-- Busca -->
+       <div class="search-box">
+         <input type="text" placeholder="Buscar estátuas, figures, colecionáveis...?">
+         <button type="submit">🔎</button>
+       </div>
+
+
+
+
+
+
+
+
+
+
+
+
+       <!-- Logotipo -->
+       <div class="logo">
+         <h1 class="logo-text">Universal <span class="logo-sub">Geek</span></h1>
+       </div>
+
+
+
+
+
+
+
+
+
+
+
+
+       <!-------- PARTE DO ATENDIMENTO----- -->
+       <div class="user-menu">
+         <div class="dropdown-atendimento">
+           <a href="#" class="dropdown-trigger">
+             <span class="icon">🗯️</span> Atendimento
+           </a>
+         
+           <div class="dropdown-content">
+             <div class="info-item">
+               <span class="item-icon">📞</span>
+               <div>
+                 <small>Compre por telefone</small>
+                 <strong>(91) 99293-7652</strong>
+               </div>
+             </div>
+           
+             <div class="info-item">
+               <span class="item-icon">💬</span>
+               <div>
+                 <small>Fale no WhatsApp</small>
+                 <strong>Beatriz e Jordan</strong>
+                 <span>(91) 99293-7652</span>
+               </div>
+             </div>
+           
+             <div class="info-item">
+               <span class="item-icon">✉️</span>
+               <div>
+                 <small>Envie um e-mail</small>
+                 <strong>contato@universalgeek.com.br</strong>
+               </div>
+             </div>
+           
+             <div class="info-horario">
+               <strong>Horário de Atendimento</strong>
+               <p>Segunda a sexta das 10h às 18:30h</p>
+             </div>
+           </div>
+         </div>
+
+
+
+
+
+
+
+
+<!-------- PARTE DO CADASTRO----- -->
+         <a href="CADASTRO.HTML">Entrar / Cadastrar</a>
+       
+         <button class="cart-btn" id="openCartBtn">
+           🛒 <span class="cart-count" id="cartCount">0</span>
+         </button>
+
+
+
+
+
+
+
+
+       </div>
+     </div>
+   </div>
+
+
+
+
+
+
+
+
+<nav class="nav-menu">
+   <ul class="nav-list">
+     <li><a href="index.html">Início</a></li>
+     <li><a href="cartas-pokemon.html">Cartas Pokémon</a></li>
+     <li><a href="envios.html">Situação da Encomenda</a></li>
+   </ul>
+ </nav>
+</header>
+
+
+
+
+<!-- ==================== BARRA DE FILTROS ALINHADA AO TEMA ==================== -->
+<section class="filters-bar">
+ <div class="filters-wrapper">
+ 
+   <div class="filter-item">
+     <label for="filterCategory">Categoria / Franquia:</label>
+     <select id="filterCategory" class="geek-select">
+       <option value="all">Todas as Categorias</option>
+       <option value="One Piece">One Piece</option>
+       <option value="Naruto">Naruto</option>
+       <option value="Hatsune Miku">Hatsune Miku</option>
+       <option value="Sun Wukong">Sun Wukong</option>
+       <option value="Evangelion">Evangelion</option>
+       <option value="Transformers">Transformers</option>
+     </select>
+   </div>
+
+
+
+
+   <div class="filter-item filter-range-box">
+     <label for="filterPrice">Preço Máximo: <strong>R$ <span id="priceValue">500,00</span></strong></label>
+     <input type="range" id="filterPrice" class="geek-range" min="40" max="500" step="10" value="500">
+   </div>
+
+
+
+
+   <button id="btnClearFilters" class="btn-clear-geek">Limpar Filtros</button>
+
+
+
+
+ </div>
+</section>
+
+
+
+
+
+
+
+
+<!-- ====================================== 2° PARTE ====================================== -->
+
+
+
+
+<!-- ==================== OS PRODUTOS ==================== -->
+<main class="main-content">
+ <h2 class="section-title">Estátuas e Action Figures</h2>
+ <div class="products-grid">
+
+
+
+
+
+
+
+
+  <!-- Produto 1: Ace -->
+   <article class="product-card" data-id="1" data-title="Action Figure - One Piece - Ace - Mega House" data-price="342.78" data-brand="One Piece" data-seller="Copag Store" data-badge="Promoção Limitada">
+     <div class="product-badge">Promoção Limitada</div>
+     <div class="product-gallery">
+       <button class="gallery-prev" onclick="changeImage(this, -1)">&#10094;</button>
+       <div class="product-image">
+         <img src="https://www.seekpng.com/png/full/408-4085672_action-figure-png.png" alt="Ace Foto 1" class="gallery-img active">
+       </div>
+       <button class="gallery-next" onclick="changeImage(this, 1)">&#10095;</button>
+     </div>
+     <h3 class="product-title">Action Figure - One Piece - Ace - Mega House</h3>
+     <p class="product-price">R$ 342,78</p>
+     <p class="product-stock">Estoque: <span>4</span> unidades</p>
+     <p class="product-description">Figure detalhada, altamente articulada e equipado com acessórios.</p>
+ <button class="btn-add-cart">Adicionar ao Carrinho</button>
+</article>
+
+
+
+
+
+
+
+
+<!-- Produto 2: EVA=02 -->
+<article class="product-card" data-id="2" data-title="Action Figure - Evangelion - EVA=02 - Neon Genesis - Blokees" data-price="137.88" data-brand="Evangelion" data-seller="Copag Store" data-badge="Promoção Limitada" data-stock="7">
+ <div class="product-badge">Promoção Limitada</div>
+ <div class="product-gallery">
+   <button class="gallery-prev" onclick="changeImage(this, -1)">&#10094;</button>
+   <div class="product-image">
+     <img src="https://blokees.com/cdn/shop/files/img_v3_02o7_460f6ef6-a13c-4f0a-8e31-d5b6a8f22bfg2_610x_crop_center.png?v=1753240557" alt="EVA2 Foto 1" class="gallery-img active">
+     <img src="https://blokees.com/cdn/shop/files/01621_610x_crop_center.png?v=1753240557" alt="EVA2 Foto 2" class="gallery-img">
+     <img src="https://blokees.com/cdn/shop/files/112_56d0f753-9454-4659-8ad2-ff117d927d32_610x_crop_center.png?v=1753240557" alt="EVA2 Foto 3" class="gallery-img">
+     <img src="https://blokees.com/cdn/shop/files/1515_610x_crop_center.png?v=1753240536" alt="EVA2 Foto 4" class="gallery-img">
+     <img src="https://blokees.com/cdn/shop/files/123_c0b7fadd-15d8-4aca-b4d0-443ab782f009_610x_crop_center.png?v=1753240536" alt="EVA2 Foto 5" class="gallery-img">
+     <img src="https://blokees.com/cdn/shop/files/Curves22_610x_crop_center.png?v=1753240557" alt="EVA Foto 6" class="gallery-img">
+     <img src="https://blokees.com/cdn/shop/files/111_b7a2d424-0012-4ddf-a0cd-09c00572430e_610x_crop_center.png?v=1753240557" alt="EVA2 Foto 7" class="gallery-img">
+     <img src="https://blokees.com/cdn/shop/files/Curves25_610x_crop_center.png?v=1753240557" alt="EVA2 Foto 8" class="gallery-img">
+   </div>
+   <button class="gallery-next" onclick="changeImage(this, 1)">&#10095;</button>
+ </div>
+ <h3 class="product-title">Action Figure - Evangelion - EVA=02 - Neon Genesis - Blokees</h3>
+ <p class="product-price">R$ 137,88</p>
+ <p class="product-stock">Estoque: <span>7</span> unidades</p>
+ <p class="product-description">Figure da Unidade EVA=02 de Evangelion super detalhada, altamente articulada e equipada com acessórios.</p>
+ <button class="btn-add-cart">Adicionar ao Carrinho</button>
+</article>
+
+
+
+
+
+
+
+
+ <!-- Produto 3: Sanji -->
+  <article class="product-card" data-id="3" data-title="Action Figure - One Piece - Sanji Diable Jambe - Figuarts Zero" data-price="248.88" data-brand="One Piece" data-seller="Copag Store" data-badge="Últimas Unidades">
+     <div class="product-badge">Últimas Unidades</div>
+     <div class="product-gallery">
+       <button class="gallery-prev" onclick="changeImage(this, -1)">&#10094;</button>
+       <div class="product-image">
+         <img src="https://www.pngkey.com/png/full/581-5814553_boa-hancock-png.png" alt="Sanji Foto 1" class="gallery-img active">
+       </div>
+       <button class="gallery-next" onclick="changeImage(this, 1)">&#10095;</button>
+     </div>
+     <h3 class="product-title">Action Figure - One Piece - Sanji Diable Jambe - Figuarts Zero</h3>
+     <p class="product-price">R$ 248,88</p>
+ <p class="product-stock">Estoque: <span>2</span> unidades</p>
+ <p class="product-description">Estátua original Figuarts Zero do cozinheiro dos Chapéus de Palha, com efeito visual dinâmico.</p>
+ <button class="btn-add-cart">Adicionar ao Carrinho</button>
+</article>
+
+
+
+
+
+
+
+
+ <!-- Produto 4: EVA=08 -->
+  <article class="product-card" data-id="4" data-title="Action Figure - Evangelion - EVA=08 - Neon Genesis - Blokees" data-price="124.70" data-brand="Evangelion" data-seller="Copag Store" data-badge="Melhor Preço" data-stock="12">
+ <div class="product-badge">Melhor Preço</div>
+ <div class="product-gallery">
+   <button class="gallery-prev" onclick="changeImage(this, -1)">&#10094;</button>
+   <div class="product-image">
+     <img src="https://blokees.com/cdn/shop/files/Maskgroup-7_610x_crop_center.webp?v=1778724765" alt="EVA8 Foto 1" class="gallery-img active">
+     <img src="https://blokees.com/cdn/shop/files/Maskgroup-6_610x_crop_center.webp?v=1778724765" alt="EVA8 Foto 2" class="gallery-img">
+     <img src="https://blokees.com/cdn/shop/files/Maskgroup-3_e21c5521-c874-4a3e-beac-9bfea7704385_610x_crop_center.webp?v=1778724766" alt="EVA8 Foto 3" class="gallery-img">
+     <img src="https://blokees.com/cdn/shop/files/Maskgroup-2_610x_crop_center.webp?v=1778724765" alt="EVA8 Foto 4" class="gallery-img">
+     <img src="https://blokees.com/cdn/shop/files/Maskgroup-4_efc6cd63-7e51-4d6e-8866-12e99c666b63_610x_crop_center.webp?v=1778724765" alt="EVA8 Foto 5" class="gallery-img">
+     <img src="https://blokees.com/cdn/shop/files/Maskgroup_249e47cd-e998-4e42-910b-15e9e8d4dd1f_610x_crop_center.webp?v=1778724765" alt="EVA8 Foto 6" class="gallery-img">
+     <img src="https://blokees.com/cdn/shop/files/Maskgroup-5_610x_crop_center.webp?v=1778724765" alt="EVA8 Foto 7" class="gallery-img">
+     <img src="https://blokees.com/cdn/shop/files/Maskgroup-1_d5f59c7a-0283-4cc4-aabf-423046030156_610x_crop_center.webp?v=1778724765" alt="EVA8 Foto 8" class="gallery-img">
+   </div>
+   <button class="gallery-next" onclick="changeImage(this, 1)">&#10095;</button>
+ </div>
+ <h3 class="product-title">Action Figure - Evangelion - EVA=08 - Neon Genesis - Blokees</h3>
+ <p class="product-price">R$ 124,70</p>
+ <p class="product-stock">Estoque: <span>12</span> unidades</p>
+ <p class="product-description">Figure da Unidade EVA=08 de Evangelion super detalhada, altamente articulada e equipada com acessórios.</p>
+ <button class="btn-add-cart">Adicionar ao Carrinho</button>
+</article>
+
+
+
+
+
+
+
+
+ <!-- Produto 5: EVA=00 -->
+  <article class="product-card" data-id="5" data-title="Action Figure - Evangelion - EVA=00 - Neon Genesis - Blokees" data-price="177.88" data-brand="Evangelion" data-seller="Copag Store" data-badge="Promoção Limitada" data-stock="7">
+ <div class="product-badge">Promoção Limitada</div>
+ <div class="product-gallery">
+   <button class="gallery-prev" onclick="changeImage(this, -1)">&#10094;</button>
+   <div class="product-image">
+     <img src="https://blokees.com/cdn/shop/files/img_v3_02o7_2d45b83e-00ab-4583-9f08-71acbf03f35g_1_610x_crop_center.webp?v=1757662152" alt="EVA0 Foto 1" class="gallery-img active">
+     <img src="https://blokees.com/cdn/shop/files/01621_44b51920-6f92-430c-9dba-a5563b266ed8_610x_crop_center.png?v=1757660663" alt="EVA0 Foto 2" class="gallery-img">
+     <img src="https://blokees.com/cdn/shop/files/123_287bdf7c-896e-4517-b0d7-98dfe7357fce_610x_crop_center.png?v=1783650152" alt="EVA0 Foto 3" class="gallery-img">
+     <img src="https://blokees.com/cdn/shop/files/120_610x_crop_center.png?v=1757660663" alt="EVA0 Foto 4" class="gallery-img">
+     <img src="https://blokees.com/cdn/shop/files/119_610x_crop_center.png?v=1757660663" alt="EVA0 Foto 5" class="gallery-img">
+     <img src="https://blokees.com/cdn/shop/files/1361_610x_crop_center.png?v=1757660663" alt="EVA0 Foto 6" class="gallery-img">
+     <img src="https://blokees.com/cdn/shop/files/1251_610x_crop_center.png?v=1757660662" alt="EVA0 Foto 7" class="gallery-img">
+   </div>
+   <button class="gallery-next" onclick="changeImage(this, 1)">&#10095;</button>
+ </div>
+ <h3 class="product-title">Action Figure - Evangelion - EVA=00 - Neon Genesis - Blokees</h3>
+ <p class="product-price">R$ 177,88</p>
+ <p class="product-stock">Estoque: <span>3</span> unidades</p>
+ <p class="product-description">Figure da Unidade EVA=00 de Evangelion super detalhada, altamente articulada e equipada com acessórios.</p>
+ <button class="btn-add-cart">Adicionar ao Carrinho</button>
+</article>
+
+
+
+
+
+
+
+
+<!-- Produto 6: EVA=01 -->
+  <article class="product-card" data-id="6" data-title="Action Figure - Evangelion - EVA=01 - Neon Genesis - Blokees" data-price="267.88" data-brand="Evangelion" data-seller="Copag Store" data-badge="Mais Vendidos" data-stock="23">
+ <div class="product-badge">Mais Vendidos</div>
+ <div class="product-gallery">
+   <button class="gallery-prev" onclick="changeImage(this, -1)">&#10094;</button>
+   <div class="product-image">
+     <img src="https://blokees.com/cdn/shop/files/1_531_610x_crop_center.webp?v=1765247246" alt="EVA1 Foto 1" class="gallery-img active">
+     <img src="https://blokees.com/cdn/shop/files/1523_610x_crop_center.webp?v=1765247254" alt="EVA1 Foto 2" class="gallery-img">
+     <img src="https://blokees.com/cdn/shop/files/1_530_610x_crop_center.webp?v=1765247201" alt="EVA1 Foto 3" class="gallery-img">
+     <img src="https://blokees.com/cdn/shop/files/1532_1_610x_crop_center.webp?v=1765247254" alt="EVA1 Foto 4" class="gallery-img">
+     <img src="https://blokees.com/cdn/shop/files/1525_610x_crop_center.webp?v=1765247254" alt="EVA1 Foto 5" class="gallery-img">
+     <img src="https://blokees.com/cdn/shop/files/1527_ea16d6cc-b541-49fd-9e71-a222ca092a27_610x_crop_center.webp?v=1765247254" alt="EVA1 Foto 6" class="gallery-img">
+     <img src="https://blokees.com/cdn/shop/files/1521_8241d773-c7e3-4cc7-b433-a797bb5ff89d_610x_crop_center.webp?v=1765247134" alt="EVA1 Foto 7" class="gallery-img">
+   </div>
+   <button class="gallery-next" onclick="changeImage(this, 1)">&#10095;</button>
+ </div>
+ <h3 class="product-title">Action Figure - Evangelion - EVA=01 - Neon Genesis - Blokees</h3>
+ <p class="product-price">R$ 267,88</p>
+ <p class="product-stock">Estoque: <span>23</span> unidades</p>
+ <p class="product-description">Figure da Unidade EVA=01 de Evangelion super detalhada, altamente articulada e equipada com acessórios.</p>
+ <button class="btn-add-cart">Adicionar ao Carrinho</button>
+</article>
+
+
+
+
+
+
+
+
+<!-- Produto 7: Miku -->
+  <article class="product-card" data-id="7" data-title="Fantastics Series - Hatsune Miku- Miku With You 2025 - Blokees" data-price="378.88" data-brand="Hatsune Miku" data-seller="Copag Store" data-badge="Edição Limitada" data-stock="9">
+ <div class="product-badge">Edição Limitada</div>
+ <div class="product-gallery">
+   <button class="gallery-prev" onclick="changeImage(this, -1)">&#10094;</button>
+   <div class="product-image">
+     <img src="https://blokees.com/cdn/shop/files/img_v3_02v8_0ba25ee8-ff03-4da7-82bb-76a50c79eabg1_610x_crop_center.webp?v=1773818294" alt="miku Foto 1" class="gallery-img active">
+     <img src="https://blokees.com/cdn/shop/files/10_2_610x_crop_center.webp?v=1773818294" alt="miku Foto 2" class="gallery-img">
+     <img src="https://blokees.com/cdn/shop/files/8_1_81843664-1359-4c78-9b89-accc9dfec75d_610x_crop_center.webp?v=1773818294" alt="miku Foto 3" class="gallery-img">
+     <img src="https://blokees.com/cdn/shop/files/3_1_4a8eea30-4535-4f50-9731-876dff0e7924_610x_crop_center.webp?v=1773818294" alt="miku Foto 4" class="gallery-img">
+     <img src="https://blokees.com/cdn/shop/files/20260318-151726_610x_crop_center.webp?v=1773818309" alt="miku Foto 5" class="gallery-img">
+     <img src="https://blokees.com/cdn/shop/files/12_2_610x_crop_center.webp?v=1773818294" alt="miku Foto 6" class="gallery-img">
+     <img src="https://blokees.com/cdn/shop/files/7_1_3536fc8d-5a3c-49e1-9f4f-531ecc4eeb10_610x_crop_center.webp?v=1773818294" alt="miku Foto 7" class="gallery-img">
+     <img src="https://blokees.com/cdn/shop/files/5_2_2b4fdb62-a894-49fe-8d56-88da33fed81b_610x_crop_center.webp?v=1773818294" alt="miku Foto 8" class="gallery-img">
+   </div>
+   <button class="gallery-next" onclick="changeImage(this, 1)">&#10095;</button>
+ </div>
+ <h3 class="product-title">Fantastics Series - Hatsune Miku- Miku With You 2025 - Blokees</h3>
+ <p class="product-price">R$ 378,88</p>
+ <p class="product-stock">Estoque: <span>9</span> unidades</p>
+ <p class="product-description">Figure da Hatsune Miku da edição limitada Miku With You 2025 bastante detalhada, articulada e com acessórios inclusos.</p>
+ <button class="btn-add-cart">Adicionar ao Carrinho</button>
+</article>
+
+
+
+
+
+
+
+
+<!-- Produto 8: Sentinela -->
+  <article class="product-card" data-id="8" data-title="Transformers - Classic Class - Action Figure - Transformers One - Sentinela Prime - Blokees" data-price="107.98" data-brand="Transformers" data-seller="Copag Store" data-badge="Em estoque" data-stock="12">
+ <div class="product-badge">em estoque</div>
+ <div class="product-gallery">
+   <button class="gallery-prev" onclick="changeImage(this, -1)">&#10094;</button>
+   <div class="product-image">
+     <img src="https://blokees.com/cdn/shop/files/Maskgroup-2_ed1e52f6-0087-4faa-9b73-e448be35bc8d_610x_crop_center.png?v=1754735157" alt="sent Foto 1" class="gallery-img active">
+     <img src="https://blokees.com/cdn/shop/files/Maskgroup-5_eb65c610-023b-421d-85ea-52a5224d6d73_610x_crop_center.png?v=1754735098" alt="sent Foto 2" class="gallery-img">
+     <img src="https://blokees.com/cdn/shop/files/Maskgroup_5d87eaaa-5b0e-4043-a605-7eeb9900c492_610x_crop_center.png?v=1754735118" alt="sent Foto 3" class="gallery-img">
+     <img src="https://blokees.com/cdn/shop/files/Maskgroup-3_7a5e71f3-13d3-446a-bd3c-1ef71c035d2c_610x_crop_center.png?v=1754735179" alt="sent Foto 4" class="gallery-img">
+     <img src="https://blokees.com/cdn/shop/files/Maskgroup-4_4963f529-0a15-4793-b5ad-df686eda42ce_610x_crop_center.png?v=1754735199" alt="sent Foto 5" class="gallery-img">
+   </div>
+   <button class="gallery-next" onclick="changeImage(this, 1)">&#10095;</button>
+ </div>
+ <h3 class="product-title">Transformers Clásico - Action Figure - Transformers One - Sentinela Prime - Blokees</h3>
+ <p class="product-price">R$ 107,98</p>
+ <p class="product-stock">Estoque: <span>12</span> unidades</p>
+ <p class="product-description">Figure da Unidade Sentinela Prime do filme Transformers One, articulado e com acessórios.</p>
+ <button class="btn-add-cart">Adicionar ao Carrinho</button>
+</article>
+
+
+
+
+
+
+
+
+<!-- Produto 9: Sun Wukong -->
+  <article class="product-card" data-id="9" data-title="Herospire - Action Figure - Champion Class - Mythical Aspect - Sun Wukong - Blokees" data-price="217.88" data-brand="Sun Wukong" data-seller="Copag Store" data-badge="Promoção Limitada" data-stock="7">
+ <div class="product-badge">Promoção Limitada</div>
+ <div class="product-gallery">
+   <button class="gallery-prev" onclick="changeImage(this, -1)">&#10094;</button>
+   <div class="product-image">
+     <img src="https://blokees.com/cdn/shop/files/Maskgroup-2_11d37211-3e95-4cf7-86e6-af75f09e356d_610x_crop_center.webp?v=1782896909" alt="sun Foto 1" class="gallery-img active">
+     <img src="https://blokees.com/cdn/shop/files/CC01-061_610x_crop_center.webp?v=1782896899" alt="sun Foto 2" class="gallery-img">
+     <img src="https://blokees.com/cdn/shop/files/CC01-A1_610x_crop_center.webp?v=1782896899" alt="sun Foto 3" class="gallery-img">
+     <img src="https://blokees.com/cdn/shop/files/CC01-021_610x_crop_center.webp?v=1782896899" alt="sun Foto 4" class="gallery-img">
+     <img src="https://blokees.com/cdn/shop/files/Maskgroup-1_162b956a-ed47-4f81-a2e5-4d078e867176_610x_crop_center.webp?v=1782896909" alt="sun Foto 5" class="gallery-img">
+     <img src="https://blokees.com/cdn/shop/files/Maskgroup_f4dda5b0-ce31-459a-9a60-2b99e2d2e5e1_610x_crop_center.webp?v=1782896908" alt="sun Foto 6" class="gallery-img">
+     <img src="https://blokees.com/cdn/shop/files/CC01-091_610x_crop_center.webp?v=1782896902" alt="sun Foto 7" class="gallery-img">
+     <img src="https://blokees.com/cdn/shop/files/CC01-141_610x_crop_center.webp?v=1782896899" alt="sun Foto 8" class="gallery-img">
+   </div>
+   <button class="gallery-next" onclick="changeImage(this, 1)">&#10095;</button>
+ </div>
+ <h3 class="product-title">Herospire - Action Figure - Champion Class - Mythical Aspect - Sun Wukong - Blokees</h3>
+ <p class="product-price">R$ 217,88</p>
+ <p class="product-stock">Estoque: <span>7</span> unidades</p>
+ <p class="product-description">Boneco Sun Wukong articulado da Herospire com rostos expressivos e mãos intercambiáveis.</p>
+ <button class="btn-add-cart">Adicionar ao Carrinho</button>
+</article>
+
+
+
+
+
+
+
+
+<!-- Produto 10: Madara -->
+  <article class="product-card" data-id="10" data-title="Naruto - Action Figure - Champion Class - Madara Uchiha - Blokees" data-price="137.88" data-brand="Naruto" data-seller="Copag Store" data-badge="Em estoque" data-stock="25">
+ <div class="product-badge">Promoção Limitada</div>
+ <div class="product-gallery">
+   <button class="gallery-prev" onclick="changeImage(this, -1)">&#10094;</button>
+   <div class="product-image">
+     <img src="https://blokees.com/cdn/shop/files/510_610x_crop_center.webp?v=1773736278" alt="Madara Foto 1" class="gallery-img active">
+     <img src="https://blokees.com/cdn/shop/files/41_db594b7a-d262-49f8-b681-52352a606e12_610x_crop_center.webp?v=1773736322" alt="Madara Foto 2" class="gallery-img">
+     <img src="https://blokees.com/cdn/shop/files/35_610x_crop_center.webp?v=1773736278" alt="Madara Foto 3" class="gallery-img">
+     <img src="https://blokees.com/cdn/shop/files/110_f3f1ebcb-9402-4d93-85e4-c546859f7d73_610x_crop_center.webp?v=1773736278" alt="Madara Foto 4" class="gallery-img">
+     <img src="https://blokees.com/cdn/shop/files/129_610x_crop_center.webp?v=1773736322" alt="Madara Foto 5" class="gallery-img">
+   </div>
+   <button class="gallery-next" onclick="changeImage(this, 1)">&#10095;</button>
+ </div>
+ <h3 class="product-title">Naruto - Action Figure - Champion Class - Madara Uchiha - Blokees</h3>
+ <p class="product-price">R$ 137,88</p>
+ <p class="product-stock">Estoque: <span>25</span> unidades</p>
+ <p class="product-description">Madara Uchiha do universo Naruto com articulações posáveis, acessórios e esculturas de rosto intercambiáveis.</p>
+ <button class="btn-add-cart">Adicionar ao Carrinho</button>
+</article>
+
+
+
+
+
+
+
+
+<!-- Produto 11: Bee -->
+  <article class="product-card" data-id="11" data-title="Transformers - Champion Class - Bumblebee - Blokees" data-price="344.88" data-brand="Transformers" data-seller="Copag Store" data-badge="Promoção Limitada" data-stock="7">
+ <div class="product-badge">Promoção Limitada</div>
+ <div class="product-gallery">
+   <button class="gallery-prev" onclick="changeImage(this, -1)">&#10094;</button>
+   <div class="product-image">
+     <img src="https://blokees.com/cdn/shop/files/Maskgroup1_610x_crop_center.webp?v=1785310656" alt="Bee Foto 1" class="gallery-img active">
+     <img src="https://blokees.com/cdn/shop/files/CC27-061_610x_crop_center.webp?v=1785310656" alt="Bee Foto 2" class="gallery-img">
+     <img src="https://blokees.com/cdn/shop/files/CC27-_1_c15b5fcb-d283-4939-9c16-0d75bfc44193_610x_crop_center.webp?v=1785310656" alt="Bee Foto 3" class="gallery-img">
+     <img src="https://blokees.com/cdn/shop/files/CC27-APOSE1_610x_crop_center.webp?v=1785310656" alt="Bee Foto 4" class="gallery-img">
+     <img src="https://blokees.com/cdn/shop/files/CC27-071_610x_crop_center.webp?v=1785310656" alt="Bee Foto 5" class="gallery-img">
+     <img src="https://blokees.com/cdn/shop/files/CC27-0131_610x_crop_center.webp?v=1785310656" alt="Bee Foto 6" class="gallery-img">
+     <img src="https://blokees.com/cdn/shop/files/CC27-0111_610x_crop_center.webp?v=1785310656" alt="Bee Foto 7" class="gallery-img">
+     <img src="https://blokees.com/cdn/shop/files/CC27-0181_610x_crop_center.webp?v=1785310656" alt="Bee Foto 8" class="gallery-img">
+     <img src="https://blokees.com/cdn/shop/files/CC27-051_610x_crop_center.webp?v=1785310656" alt="Bee Foto 9" class="gallery-img">
+     <img src="https://blokees.com/cdn/shop/files/CC27-041_610x_crop_center.webp?v=1785310656" alt="Bee Foto 10" class="gallery-img">
+     <img src="https://blokees.com/cdn/shop/files/CC27-0121_610x_crop_center.webp?v=1785310656" alt="Bee Foto 11" class="gallery-img">
+   </div>
+   <button class="gallery-next" onclick="changeImage(this, 1)">&#10095;</button>
+ </div>
+ <h3 class="product-title">Transformers - Champion Class - Bumblebee - Blokees</h3>
+ <p class="product-price">R$ 344,88</p>
+ <p class="product-stock">Estoque: <span>7</span> unidades</p>
+ <p class="product-description">Figure da Unidade B=127 ou Bumblebee do filme Transformers Bumblebee de 2018, articulado e com acessórios intercambiáveis.</p>
+ <button class="btn-add-cart">Adicionar ao Carrinho</button>
+</article>
+
+
+
+
+
+
+
+
+<!-- Produto 12: Blitzwing -->
+  <article class="product-card" data-id="7" data-title="Transformers - Classic Class - Blitzwing - Blokees" data-price="237.88" data-brand="Transformers" data-seller="Copag Store" data-badge="Promoção Limitada" data-stock="7">
+ <div class="product-badge">Promoção Limitada</div>
+ <div class="product-gallery">
+   <button class="gallery-prev" onclick="changeImage(this, -1)">&#10094;</button>
+   <div class="product-image">
+     <img src="https://blokees.com/cdn/shop/files/CC25_1_610x_crop_center.webp?v=1773715127" alt="blitz Foto 1" class="gallery-img active">
+     <img src="https://blokees.com/cdn/shop/files/CC25-_1_610x_crop_center.webp?v=1773715127" alt="blitz Foto 2" class="gallery-img">
+     <img src="https://blokees.com/cdn/shop/files/CC25-051_610x_crop_center.webp?v=1773715127" alt="blitz Foto 3" class="gallery-img">
+     <img src="https://blokees.com/cdn/shop/files/CC25-021_610x_crop_center.webp?v=1773715127" alt="blitz Foto 4" class="gallery-img">
+     <img src="https://blokees.com/cdn/shop/files/Mask_group_-_2026-03-17T103808.008_610x_crop_center.webp?v=1773715127" alt="blitz Foto 5" class="gallery-img">
+     <img src="https://blokees.com/cdn/shop/files/CC25-011_610x_crop_center.webp?v=1773399619" alt="blitz Foto 6" class="gallery-img">
+     <img src="https://blokees.com/cdn/shop/files/CC25-03-2_1_610x_crop_center.webp?v=1773399619" alt="blitz Foto 7" class="gallery-img">
+     <img src="https://blokees.com/cdn/shop/files/CC25-061_610x_crop_center.webp?v=1773715127" alt="blitz Foto 8" class="gallery-img">
+   </div>
+   <button class="gallery-next" onclick="changeImage(this, 1)">&#10095;</button>
+ </div>
+ <h3 class="product-title">Transformers - Classic Class - Blitzwing - Blokees</h3>
+ <p class="product-price">R$ 237,88</p>
+ <p class="product-stock">Estoque: <span>7</span> unidades</p>
+ <p class="product-description">Boneco colecionável Blitzwing articulado de Transformers com acessórios e mãos intercambiáveis.</p>
+ <button class="btn-add-cart">Adicionar ao Carrinho</button>
+</article>
+
+
+
+
+
+
+
+
+   </div>
+ </main>
+
+
+
+
+
+
+
+
+<!-- ==================== A PARTE DO CARRINHO CARRINHO ==================== -->
+ <div class="cart-overlay" id="cartOverlay">
+   <div class="cart-modal">
+     <div class="modal-header">
+       <h3>Seu Carrinho</h3>
+       <button class="close-modal" id="closeCartBtn">&times;</button>
+     </div>
+   
+     <div class="cart-items-list" id="cartItemsList"></div>
+   
+     <div class="promo-banner">🎁 Aniversário GG: é hora de aproveitar!</div>
+   
+     <div class="cart-summary">
+       <span>Subtotal: </span>
+       <span class="subtotal-value" id="cartSubtotal">R$ 0,00</span>
+     </div>
+   
+     <div class="cart-actions">
+       <button class="btn-continue" id="continueShoppingBtn">Continuar comprando</button>
+       <a href="carrinho.html" class="btn-checkout">Concluir Compra</a>
+     </div>
+   </div>
+ </div>
+
+
+
+
+
+
+
+
+<!-- ==================== RODA-PÉ E AS AVALIAÇÕES DA LOJA ==================== -->
+
+
+
+
+<section class="reviews-section">
+ <h2>O que os geeks dizem</h2>
+ <div class="reviews-container">
+   <div class="review-card">
+     <div class="stars">★★★★★</div>
+     <p>"Chegou super rápido e o Funko do Chopper veio impecável. Embalagem nota 10!"</p>
+     <span>— Lucas M.</span>
+   </div>
+   <div class="review-card">
+     <div class="stars">★★★★★</div>
+     <p>"A carta do Charizard veio ultra bem protegida no top loader. Comprarei mais vezes!"</p>
+     <span>— Rafaela S.</span>
+   </div>
+   <div class="review-card">
+     <div class="stars">★★★★★</div>
+     <p>"Loja incrível, atendimento excelente pelo WhatsApp. Recomendadíssimo!"</p>
+     <span>— Gabriel T.</span>
+   </div>
+ </div>
+</section>
+
+
+
+
+
+
+
+
+ <!-- ==================== RODA PÉ ==================== -->
+
+
+
+
+<footer class="main-footer">
+ <div class="footer-container">
+   <div class="footer-col">
+     <h3>Universal Geek</h3>
+     <p>Sua loja definitiva de colecionáveis, action figures e card games.</p>
+   </div>
+
+
+
+
+
+
+
+
+   <div class="footer-col">
+     <h4>Categorias</h4>
+     <ul>
+       <li><a href="#">Estátuas e Action Figures</a></li>
+       <li><a href="#">Presentes Criativos</a></li>
+       <li><a href="#">Cartas Pokémon</a></li>
+     </ul>
+   </div>
+
+
+
+
+
+
+
+
+   <div class="footer-col">
+     <h4>Atendimento</h4>
+     <ul>
+       <li><a href="#">Ajuda & Suporte</a></li>
+       <li><a href="#">Envios e Prazos</a></li>
+       <li><a href="#">Trocas e Devoluções</a></li>
+     </ul>
+   </div>
+
+
+
+
+
+
+
+
+   <div class="footer-col">
+     <h4>Pagamento seguro</h4>
+     <p>Pix (5% OFF), Cartões de Crédito e Boleto</p>
+   </div>
+ </div>
+
+
+
+
+
+
+
+
+ <div class="footer-bottom">
+   <p>&copy; 2026 Universal Geek. Todos os direitos reservados.</p>
+ </div>
+</footer>
+
+
+
+
+
+
+
+
+<!-- Modal de Seleção de Variação -->
+<div id="variationModal" class="variation-modal-overlay">
+ <div class="variation-modal-card">
+   <button id="closeVarModal" class="variation-modal-close" aria-label="Fechar">&times;</button>
+ 
+   <div class="variation-modal-header">
+     <img id="varModalPreview" src="" alt="Preview" class="variation-modal-img">
+     <div class="variation-modal-info">
+       <h4 id="varModalTitle" class="variation-modal-title"></h4>
+       <div id="varModalPrice" class="variation-modal-price"></div>
+     </div>
+   </div>
+
+
+
+
+
+
+
+
+   <div class="variation-modal-body">
+     <label class="variation-modal-label">Selecione a opção:</label>
+     <div id="varModalOptions" class="variation-modal-options"></div>
+   </div>
+ </div>
+</div>
+
+
+
+
+
+
+
+
+<!-- Modal (Janela Pop-up) -->
+<div id="product-modal" class="modal">
+ <div class="modal-content">
+   <span class="close-btn" onclick="closeModal()">&times;</span>
+   <div class="modal-body">
+     <div class="modal-image-container">
+       <img id="modal-img" src="" alt="Produto">
+     </div>
+     <div class="modal-info">
+       <span id="modal-badge" class="product-badge"></span>
+       <h2 id="modal-title"></h2>
+       <p id="modal-seller"></p>
+       <p id="modal-price" class="product-price"></p>
+       <hr>
+       <p id="modal-description"></p>
+     
+     </div>
+   </div>
+ </div>
+</div>
+
+
+
+
+
+
+
+
+ <script src="js/projeto.js"></script>
 </body>
 </html>

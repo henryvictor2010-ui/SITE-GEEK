@@ -1,193 +1,383 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cartas Pokémon - Universal Geek</title>
-  <link rel="stylesheet" href="css/projeto.css">
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Cartas Pokémon - Universal Geek</title>
+ <link rel="stylesheet" href="css/projeto.css">
 </head>
 <body>
 
-  <!-- HEADER PRINCIPAL -->
-  <header class="site-header">
-    <div class="top-bar">
-      <span>FRETE GRÁTIS PARA TODO O BRASIL EM COMPRAS ACIMA DE R$ 199</span>
-    </div>
+
+ <!-- ====================================== INÍCIO DA PÁGINA ====================================== -->
+
+
+ <!-- == Mensagem de Desconto == -->
+ <header class="site-header">
+   <div class="top-bar">
+     <p>Frete grátis de TCG para todo o Brasil em compras de Cartas e Booster Boxes acima de R$ 199.00</p>
+   </div>
+
+
+   <div class="main-header">
+     <div class="header-container">
+      
+       <!-- Busca -->
+       <div class="search-box">
+         <input type="text" placeholder="Buscar cartas, booster boxes, decks, sleeves...?">
+         <button type="submit">🔎</button>
+       </div>
+
+
+       <!-- Logotipo -->
+       <div class="logo">
+         <h1 class="logo-text">Universal <span class="logo-sub">Geek</span></h1>
+       </div>
+
+
+       <!-------- PARTE DO ATENDIMENTO----- -->
+       <div class="user-menu">
+         <div class="dropdown-atendimento">
+           <a href="#" class="dropdown-trigger">
+             <span class="icon">🗯️</span> Atendimento
+           </a>
+          
+           <div class="dropdown-content">
+             <div class="info-item">
+               <span class="item-icon">📞</span>
+               <div>
+                 <small>Compre por telefone</small>
+                 <strong>(91) 99293-7652</strong>
+               </div>
+             </div>
+            
+             <div class="info-item">
+               <span class="item-icon">💬</span>
+               <div>
+                 <small>Fale no WhatsApp</small>
+                 <strong>Beatriz e Jordan</strong>
+                 <span>(91) 99293-7652</span>
+               </div>
+             </div>
+            
+             <div class="info-item">
+               <span class="item-icon">✉️</span>
+               <div>
+                 <small>Envie um e-mail</small>
+                 <strong>contato@universalgeek.com.br</strong>
+               </div>
+             </div>
+            
+             <div class="info-horario">
+               <strong>Horário de Atendimento</strong>
+               <p>Segunda a sexta das 10h às 18:30h</p>
+             </div>
+           </div>
+         </div>
+
+
+         <!-------- PARTE DO CADASTRO----- -->
+         <a href="CADASTRO.HTML">Entrar / Cadastrar</a>
+        
+         <button class="cart-btn" id="openCartBtn">
+           🛒 <span class="cart-count" id="cartCount">0</span>
+         </button>
+       </div>
+     </div>
+   </div>
+
+
+   <nav class="nav-menu">
+     <ul class="nav-list">
+       <li><a href="index.html">Início</a></li>
+       <li><a href="cartas-pokemon.html" class="active">Cartas Pokémon</a></li>
+       <li><a href="envios.html">Situação da Encomenda</a></li>
+     </ul>
+   </nav>
+ </header>
+
+
+ <!-- ==================== BARRA DE FILTROS ALINHADA AO TEMA ==================== -->
+ <section class="filters-bar">
+   <div class="filters-wrapper">
     
-    <div class="main-header">
-      <div class="header-container">
-        <div class="search-box">
-          <input type="text" placeholder="Buscar cartas, boosters, decks...">
-          <button type="submit">🔍</button>
-        </div>
-
-        <div class="logo">
-          <span class="logo-text">UNIVERSAL <span class="logo-sub">GEEK</span></span>
-        </div>
-
-        <div class="user-menu">
-          <div class="dropdown-atendimento">
-            <div class="dropdown-trigger">
-              <span>Atendimento</span>
-              <small>▼</small>
-            </div>
-            <div class="dropdown-content">
-              <div class="info-item">
-                <span class="item-icon">💬</span>
-                <div>
-                  <small>WhatsApp</small>
-                  <strong>(91) 98000-0000</strong>
-                </div>
-              </div>
-              <div class="info-item">
-                <span class="item-icon">✉️</span>
-                <div>
-                  <small>E-mail</small>
-                  <span>contato@universalgeek.com.br</span>
-                </div>
-              </div>
-              <div class="info-horario">
-                <strong>Horário de Atendimento</strong>
-                <p>Segunda a Sexta: 09h às 18h</p>
-              </div>
-            </div>
-          </div>
-
-          <a href="#" class="cart-btn" id="open-cart-btn">
-            <span>🛒 Carrinho</span>
-            <span class="cart-count" id="cart-count">0</span>
-          </a>
-        </div>
-      </div>
-    </div>
-
-    <!-- MENU DE NAVEGAÇÃO -->
-    <nav class="nav-menu">
-      <ul class="nav-list">
-        <li><a href="index.html">INÍCIO</a></li>
-        <li><a href="cartas-pokemon.html" style="color: var(--terracota);">CARTAS POKÉMON</a></li>
-        <li><a href="action-figures.html">ACTION FIGURES</a></li>
-        <li><a href="index.html#promocoes">PROMOÇÕES</a></li>
-      </ul>
-    </nav>
-  </header>
-
-  <!-- CONTEÚDO PRINCIPAL: POKÉMON TCG -->
-  <main class="main-content">
-    <h1 class="section-title">Pokémon TCG - Cartas & Decks</h1>
-
-    <div class="products-grid">
-
-      <!-- PRODUTO 1: BOOSTER BOX -->
-      <div class="product-card" 
-           data-id="pk-01" 
-           data-name="Booster Box Pokémon TCG - Escarlate e Violeta" 
-           data-price="289.90" 
-           data-seller="Universal Geek" 
-           data-description="Caixa selada contendo 36 pacotes de booster da coleção Escarlate e Violeta. Cada pacote contém 6 cartas no formato em português."
-           data-image="https://via.placeholder.com/200x160?text=Booster+Box">
-        <span class="product-badge">Destaque</span>
-        <div class="product-gallery">
-          <button class="gallery-prev">‹</button>
-          <div class="product-image">
-            <img src="https://via.placeholder.com/200x160?text=Booster+Box+Frente" class="gallery-img active" alt="Booster Box Frente">
-            <img src="https://via.placeholder.com/200x160?text=Booster+Box+Verso" class="gallery-img" alt="Booster Box Verso">
-          </div>
-          <button class="gallery-next">›</button>
-        </div>
-        <h3 class="product-title">Booster Box Pokémon TCG - Escarlate e Violeta</h3>
-        <p class="product-price">R$ 289,90</p>
-        <button class="btn-add-cart">Adicionar ao Carrinho</button>
-      </div>
-
-      <!-- PRODUTO 2: CARTA AVULSA / ULTRA RARA -->
-      <div class="product-card" 
-           data-id="pk-02" 
-           data-name="Charizard ex Charizard Raro Ilustração Especial" 
-           data-price="450.00" 
-           data-seller="Universal Geek" 
-           data-description="Carta avulsa no formato Near Mint (NM). Ilustração especial ultrarrara, enviada em sleeve protetor de alta qualidade e toploader duro."
-           data-image="https://via.placeholder.com/200x160?text=Charizard+ex">
-        <div class="product-gallery">
-          <button class="gallery-prev">‹</button>
-          <div class="product-image">
-            <img src="https://via.placeholder.com/200x160?text=Charizard+ex" class="gallery-img active" alt="Charizard ex">
-          </div>
-          <button class="gallery-next">›</button>
-        </div>
-        <h3 class="product-title">Charizard ex - Raro Ilustração Especial (NM)</h3>
-        <p class="product-price">R$ 450,00</p>
-        <button class="btn-add-cart">Adicionar ao Carrinho</button>
-      </div>
-
-      <!-- PRODUTO 3: DECK ESTRATÉGICO -->
-      <div class="product-card" 
-           data-id="pk-03" 
-           data-name="Baralho Batalha Deluxe - Meowscarada ex" 
-           data-price="129.90" 
-           data-seller="Universal Geek" 
-           data-description="Baralho pronto para jogar de 60 cartas, incluindo 1 carta Meowscarada ex em papel alumínio, caixa de baralho e contadores de dano."
-           data-image="https://via.placeholder.com/200x160?text=Deck+Meowscarada">
-        <div class="product-gallery">
-          <button class="gallery-prev">‹</button>
-          <div class="product-image">
-            <img src="https://via.placeholder.com/200x160?text=Deck+Meowscarada" class="gallery-img active" alt="Deck Meowscarada">
-          </div>
-          <button class="gallery-next">›</button>
-        </div>
-        <h3 class="product-title">Baralho Batalha Deluxe - Meowscarada ex</h3>
-        <p class="product-price">R$ 129,90</p>
-        <button class="btn-add-cart">Adicionar ao Carrinho</button>
-      </div>
-
-    </div>
-  </main>
+     <div class="filter-item">
+       <label for="filterCategory">Tipo / Coleção:</label>
+       <select id="filterCategory" class="geek-select">
+         <option value="all">Todas as Coleções</option>
+         <option value="Booster Box">Booster Boxes</option>
+         <option value="Decks Estruturais">Decks Estruturais</option>
+         <option value="Cartas Avulsas Ultra Raras">Cartas Ultra Raras</option>
+         <option value="Sleeves e Acessórios">Sleeves e Acessórios</option>
+         <option value="Formatos Especiais">TAG TEAM & Especiais</option>
+       </select>
+     </div>
 
 
+     <div class="filter-item filter-range-box">
+       <label for="filterPrice">Preço Máximo: <strong>R$ <span id="priceValue">500,00</span></strong></label>
+       <input type="range" id="filterPrice" class="geek-range" min="40" max="500" step="10" value="500">
+     </div>
 
-  <!-- MODAIS E RODAPÉ (REUTILIZADOS) -->
-  <div id="product-modal" class="modal">
-    <div class="modal-content">
-      <span class="close-btn" id="close-modal-btn">&times;</span>
-      <div class="modal-body">
-        <div class="modal-image-container">
-          <img id="modal-image" src="" alt="Produto">
-        </div>
-        <div class="modal-info">
-          <h2 id="modal-title"></h2>
-          <p id="modal-seller"></p>
-          <p id="modal-description"></p>
-          <p id="modal-price" class="product-price"></p>
-          <button class="btn-add-cart" id="modal-add-cart-btn">Adicionar ao Carrinho</button>
-        </div>
-      </div>
-    </div>
-  </div>
 
-  <div class="cart-overlay" id="cart-overlay">
-    <div class="cart-modal">
-      <div class="modal-header">
-        <h2>Seu Carrinho</h2>
-        <button class="close-modal" id="close-cart-btn">&times;</button>
-      </div>
-      <div class="cart-items-list" id="cart-items-container"></div>
-      <div class="promo-banner">COMPRAS ACIMA DE R$ 199 TÊM FRETE GRÁTIS!</div>
-      <div class="cart-summary">
-        <p>Subtotal: <span class="subtotal-value" id="cart-subtotal">R$ 0,00</span></p>
-      </div>
-      <div class="cart-actions">
-        <button class="btn-continue" id="continue-shopping">Continuar Comprando</button>
-        <a href="#" class="btn-checkout">Finalizar Compra</a>
-      </div>
-    </div>
-  </div>
+     <button id="btnClearFilters" class="btn-clear-geek">Limpar Filtros</button>
 
-  <footer class="main-footer">
-    <div class="footer-bottom">
-      <p>&copy; 2026 Universal Geek. Todos os direitos reservados.</p>
-    </div>
-  </footer>
 
-  <script src="js/projeto.js"></script>
+   </div>
+ </section>
+
+
+ <!-- ==================== OS PRODUTOS ==================== -->
+ <main class="main-content">
+   <h2 class="section-title">Pokémon Estampa Ilustrada (TCG)</h2>
+   <div class="products-grid">
+
+
+     <!-- Produto 1: Charizard ex -->
+     <article class="product-card" data-id="1" data-title="Carta Pokémon - Charizard ex Ultra Rara - Escarlate e Violeta" data-price="289.90" data-brand="Cartas Avulsas Ultra Raras" data-seller="Copag Store" data-badge="Mais Desejada">
+       <div class="product-badge">Mais Desejada</div>
+       <div class="product-gallery">
+         <button class="gallery-prev" onclick="changeImage(this, -1)">&#10094;</button>
+         <div class="product-image">
+           <img src="https://images.pokemontcg.io/sv3pt5/199_hires.png" alt="Charizard ex Foto 1" class="gallery-img active">
+         </div>
+         <button class="gallery-next" onclick="changeImage(this, 1)">&#10095;</button>
+       </div>
+       <h3 class="product-title">Carta Pokémon - Charizard ex Ultra Rara - Escarlate e Violeta</h3>
+       <p class="product-price">R$ 289,90</p>
+       <p class="product-stock">Estoque: <span>3</span> unidades</p>
+       <p class="product-description">Carta avulsa oficial Copag em estado Mint, enviada protegida em Top Loader.</p>
+       <button class="btn-add-cart">Adicionar ao Carrinho</button>
+     </article>
+
+
+     <!-- Produto 2: Booster Box -->
+     <article class="product-card" data-id="2" data-title="Display Booster Box - Pokémon Escarlate e Violeta (36 Pacotes)" data-price="399.88" data-brand="Booster Box" data-seller="Copag Store" data-badge="Promoção Limitada" data-stock="5">
+       <div class="product-badge">Promoção Limitada</div>
+       <div class="product-gallery">
+         <button class="gallery-prev" onclick="changeImage(this, -1)">&#10094;</button>
+         <div class="product-image">
+           <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTO4RCUb3tt2WIXVXTgQYQhryumKkiFxSw31P1091_zrQ&s=10" alt="Booster Box Foto 1" class="gallery-img active">
+         </div>
+         <button class="gallery-next" onclick="changeImage(this, 1)">&#10095;</button>
+       </div>
+       <h3 class="product-title">Display Booster Box - Pokémon Escarlate e Violeta (36 Pacotes)</h3>
+       <p class="product-price">R$ 399,88</p>
+       <p class="product-stock">Estoque: <span>5</span> unidades</p>
+       <p class="product-description">Caixa lacrada contendo 36 pacotes de booster oficiais Copag para expandir sua coleção.</p>
+       <button class="btn-add-cart">Adicionar ao Carrinho</button>
+     </article>
+
+
+     <!-- Produto 3: Pikachu VMAX -->
+     <article class="product-card" data-id="3" data-title="Carta Pokémon - Pikachu VMAX Secret Rara" data-price="188.88" data-brand="Cartas Avulsas Ultra Raras" data-seller="Copag Store" data-badge="Últimas Unidades">
+       <div class="product-badge">Últimas Unidades</div>
+       <div class="product-gallery">
+         <button class="gallery-prev" onclick="changeImage(this, -1)">&#10094;</button>
+         <div class="product-image">
+           <img src="https://images.pokemontcg.io/swsh4/188_hires.png" alt="Pikachu VMAX Foto 1" class="gallery-img active">
+         </div>
+         <button class="gallery-next" onclick="changeImage(this, 1)">&#10095;</button>
+       </div>
+       <h3 class="product-title">Carta Pokémon - Pikachu VMAX Secret Rara</h3>
+       <p class="product-price">R$ 188,88</p>
+       <p class="product-stock">Estoque: <span>2</span> unidades</p>
+       <p class="product-description">Edição especial de colecionador com textura em relevo e acabamento foil brilhante.</p>
+       <button class="btn-add-cart">Adicionar ao Carrinho</button>
+     </article>
+
+
+     <!-- Produto 4: TAG TEAM Reshiram & Charizard -->
+     <article class="product-card" data-id="4" data-title="Carta Pokémon - Reshiram & Charizard GX TAG TEAM" data-price="149.70" data-brand="Formatos Especiais" data-seller="Copag Store" data-badge="Melhor Preço" data-stock="4">
+       <div class="product-badge">Melhor Preço</div>
+       <div class="product-gallery">
+         <button class="gallery-prev" onclick="changeImage(this, -1)">&#10094;</button>
+         <div class="product-image">
+           <img src="https://images.pokemontcg.io/sm10/20_hires.png" alt="Reshiram e Charizard Foto 1" class="gallery-img active">
+         </div>
+         <button class="gallery-next" onclick="changeImage(this, 1)">&#10095;</button>
+       </div>
+       <h3 class="product-title">Carta Pokémon - Reshiram & Charizard GX TAG TEAM</h3>
+       <p class="product-price">R$ 149,70</p>
+       <p class="product-stock">Estoque: <span>4</span> unidades</p>
+       <p class="product-description">Carta aliada de alto impacto para decks do formato Expandido ou exibição em pastas.</p>
+       <button class="btn-add-cart">Adicionar ao Carrinho</button>
+     </article>
+
+
+     <!-- Produto 5: Deck Batalha de Liga -->
+     <article class="product-card" data-id="5" data-title="Baralho de Batalha de Liga - Mew VMAX - Pronto para Jogar" data-price="177.88" data-brand="Decks Estruturais" data-seller="Copag Store" data-badge="Promoção Limitada" data-stock="6">
+       <div class="product-badge">Promoção Limitada</div>
+       <div class="product-gallery">
+         <button class="gallery-prev" onclick="changeImage(this, -1)">&#10094;</button>
+         <div class="product-image">
+           <img src="https://images.pokemontcg.io/swsh8/269_hires.png" alt="Deck Mew VMAX Foto 1" class="gallery-img active">
+         </div>
+         <button class="gallery-next" onclick="changeImage(this, 1)">&#10095;</button>
+       </div>
+       <h3 class="product-title">Baralho de Batalha de Liga - Mew VMAX - Pronto para Jogar</h3>
+       <p class="product-price">R$ 177,88</p>
+       <p class="product-stock">Estoque: <span>6</span> unidades</p>
+       <p class="product-description">Deck competitivo completo com 60 cartas, dados de contadores de dano e caixa de baralho.</p>
+       <button class="btn-add-cart">Adicionar ao Carrinho</button>
+     </article>
+
+
+     <!-- Produto 6: Mewtwo GX -->
+     <article class="product-card" data-id="6" data-title="Carta Pokémon - Mewtwo GX Arte Alternativa" data-price="267.88" data-brand="Cartas Avulsas Ultra Raras" data-seller="Copag Store" data-badge="Mais Vendidos" data-stock="8">
+       <div class="product-badge">Mais Vendidos</div>
+       <div class="product-gallery">
+         <button class="gallery-prev" onclick="changeImage(this, -1)">&#10094;</button>
+         <div class="product-image">
+           <img src="https://images.pokemontcg.io/sm35/78_hires.png" alt="Mewtwo GX Foto 1" class="gallery-img active">
+         </div>
+         <button class="gallery-next" onclick="changeImage(this, 1)">&#10095;</button>
+       </div>
+       <h3 class="product-title">Carta Pokémon - Mewtwo GX Arte Alternativa</h3>
+       <p class="product-price">R$ 267,88</p>
+       <p class="product-stock">Estoque: <span>8</span> unidades</p>
+       <p class="product-description">Raridade especial com ilustração estendida full art e ótimo estado de conservação.</p>
+       <button class="btn-add-cart">Adicionar ao Carrinho</button>
+     </article>
+
+
+   </div>
+ </main>
+
+
+ <!-- ==================== A PARTE DO CARRINHO ==================== -->
+ <div class="cart-overlay" id="cartOverlay">
+   <div class="cart-modal">
+     <div class="modal-header">
+       <h3>Seu Carrinho de Cartas</h3>
+       <button class="close-modal" id="closeCartBtn">&times;</button>
+     </div>
+   
+     <div class="cart-items-list" id="cartItemsList"></div>
+   
+     <div class="promo-banner">🎁 Semana TCG: Ganhe 1 Sleeve Protetor em compras acima de R$ 100!</div>
+   
+     <div class="cart-summary">
+       <span>Subtotal: </span>
+       <span class="subtotal-value" id="cartSubtotal">R$ 0,00</span>
+     </div>
+   
+     <div class="cart-actions">
+       <button class="btn-continue" id="continueShoppingBtn">Continuar comprando</button>
+       <a href="carrinho.html" class="btn-checkout">Concluir Compra</a>
+     </div>
+   </div>
+ </div>
+
+
+ <!-- ==================== RODA-PÉ E AS AVALIAÇÕES DA LOJA ==================== -->
+ <section class="reviews-section">
+   <h2>O que os treinadores dizem</h2>
+   <div class="reviews-container">
+     <div class="review-card">
+       <div class="stars">★★★★★</div>
+       <p>"A carta do Charizard veio ultra bem protegida no top loader e com shield extra. Comprarei mais vezes!"</p>
+       <span class="review-author">— Rafaela S.</span>
+     </div>
+     <div class="review-card">
+       <div class="stars">★★★★★</div>
+       <p>"A Booster Box chegou super rápida, sem nenhum amassado e com os selos originais de fábrica. Nota 10!"</p>
+       <span class="review-author">— Lucas M.</span>
+     </div>
+     <div class="review-card">
+       <div class="stars">★★★★★</div>
+       <p>"Atendimento excelente pelo WhatsApp. Tiraram minhas dúvidas sobre o formato das cartas TAG TEAM!"</p>
+       <span class="review-author">— Gabriel T.</span>
+     </div>
+   </div>
+ </section>
+
+
+ <!-- ==================== RODA PÉ ==================== -->
+ <footer class="main-footer">
+   <div class="footer-container">
+     <div class="footer-col">
+       <h3>Universal Geek</h3>
+       <p>Sua loja definitiva de colecionáveis, Pokémon TCG e card games com envio seguro para todo o Brasil.</p>
+     </div>
+
+
+     <div class="footer-col">
+       <h4>Categorias</h4>
+       <ul>
+         <li><a href="#">Booster Boxes & Pacotes</a></li>
+         <li><a href="#">Cartas Avulsas Ultra Raras</a></li>
+         <li><a href="#">Decks & Acessórios</a></li>
+       </ul>
+     </div>
+
+
+     <div class="footer-col">
+       <h4>Atendimento</h4>
+       <ul>
+         <li><a href="#">Ajuda & Suporte TCG</a></li>
+         <li><a href="#">Envios e Prazos</a></li>
+         <li><a href="#">Trocas e Devoluções</a></li>
+       </ul>
+     </div>
+
+
+     <div class="footer-col">
+       <h4>Pagamento seguro</h4>
+       <p>Pix (5% OFF), Cartões de Crédito e Boleto</p>
+     </div>
+   </div>
+
+
+   <div class="footer-bottom">
+     <p>&copy; 2026 Universal Geek. Todos os direitos reservados.</p>
+   </div>
+ </footer>
+
+
+ <!-- Modal de Seleção de Variação -->
+ <div id="variationModal" class="variation-modal-overlay">
+   <div class="variation-modal-card">
+     <button id="closeVarModal" class="variation-modal-close" aria-label="Fechar">&times;</button>
+   
+     <div class="variation-modal-header">
+       <img id="varModalPreview" src="" alt="Preview" class="variation-modal-img">
+       <div class="variation-modal-info">
+         <h4 id="varModalTitle" class="variation-modal-title"></h4>
+         <div id="varModalPrice" class="variation-modal-price"></div>
+       </div>
+     </div>
+
+
+     <div class="variation-modal-body">
+       <label class="variation-modal-label">Selecione o idioma / versão:</label>
+       <div id="varModalOptions" class="variation-modal-options"></div>
+     </div>
+   </div>
+ </div>
+
+
+ <!-- Modal (Janela Pop-up) -->
+ <div id="product-modal" class="modal">
+   <div class="modal-content">
+     <span class="close-btn" onclick="closeModal()">&times;</span>
+     <div class="modal-body">
+       <div class="modal-image-container">
+         <img id="modal-img" src="" alt="Produto">
+       </div>
+       <div class="modal-info">
+         <span id="modal-badge" class="product-badge"></span>
+         <h2 id="modal-title"></h2>
+         <p id="modal-seller"></p>
+         <p id="modal-price" class="product-price"></p>
+         <hr>
+         <p id="modal-description"></p>
+       </div>
+     </div>
+   </div>
+ </div>
+
+
+ <script src="js/projeto.js"></script>
 </body>
 </html>
