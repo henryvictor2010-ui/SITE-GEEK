@@ -96,9 +96,6 @@ formCadastro.addEventListener("submit", function(event) {
     const endereco = document.getElementById("endereco").value;
 
 
-    const numero = document.getElementById("numero").value;
-
-
     const bairro = document.getElementById("bairro").value;
 
 
@@ -151,7 +148,6 @@ formCadastro.addEventListener("submit", function(event) {
         email: email,
         telefone: telefone,
         endereco: endereco,
-        numero: numero,
         bairro: bairro,
         cidade: cidade,
         estado: estado,
