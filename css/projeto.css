@@ -26,6 +26,38 @@ body {
 }
 
 
+
+
+/* Container principal do cabeçalho */
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  gap: 15px;
+}
+
+/* Tamanho do gatinho mascote */
+.mascot-img {
+  max-height: 130px; /* Ajuste conforme preferir */
+  width: auto;
+  display: block;
+}
+
+/* Tamanho da logo principal com o texto */
+.logo-main-img {
+  max-height: 95px; /* Ajuste conforme preferir */
+  width: auto;
+  display: block;
+}
+
+
+
+
+
+
+
+
 /* ==========================================================================
    2. HEADER PRINCIPAL
    ========================================================================== */
