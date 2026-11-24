@@ -214,3 +214,31 @@ Esta secção documenta os prompts e orientações fornecidos à Inteligência A
 # PART 2 DESENVOLVIMENTO DE APLICAÇÕES PARA INTERNET
 
 ---
+
+
+## Back-end
+
+O Universal Geek utiliza Node.js e Express.js como
+framework back-end, seguindo uma arquitetura monolítica
+que integra front-end e back-end no mesmo projeto.
+
+## Como executar o projeto
+
+1. Instale o Node.js.
+2. Execute `npm install`.
+3. Execute `node server.js`.
+4. Acesse http://localhost:3000 no navegador.
+
+## Rotas disponíveis
+
+- `/` - Página principal do Universal Geek.
+- `/status` - Verificação do funcionamento do servidor.
+
+## Principais prompts de Inteligência Artificial
+
+- Como incorporar o Express.js ao projeto existente?
+- Como organizar o projeto em uma arquitetura monolítica?
+- Como configurar um servidor e suas rotas?
+- Como resolver conflitos de merge no código HTML?
+- Como validar as funcionalidades após a implementação
+  do back-end?
