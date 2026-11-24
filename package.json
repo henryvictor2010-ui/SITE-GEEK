@@ -1,0 +1,24 @@
+{
+  "name": "site-geek",
+  "version": "1.0.0",
+  "description": "---",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/henryvictor2010-ui/SITE-GEEK.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/henryvictor2010-ui/SITE-GEEK/issues"
+  },
+  "homepage": "https://github.com/henryvictor2010-ui/SITE-GEEK#readme",
+  "dependencies": {
+    "express": "^5.3.0"
+  }
+}
